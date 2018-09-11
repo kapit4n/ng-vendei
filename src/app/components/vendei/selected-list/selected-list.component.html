@@ -1,0 +1,10 @@
+<mat-list>
+  <h3 mat-subheader>Products</h3>
+  <mat-list-item *ngFor="let product of products">
+    <mat-icon mat-list-icon>product</mat-icon>
+    <h4 mat-line>{{product.name}}</h4>
+    <p mat-line> {{product.cost}} </p>
+    <mat-divider></mat-divider>
+  </mat-list-item>
+  
+</mat-list>
