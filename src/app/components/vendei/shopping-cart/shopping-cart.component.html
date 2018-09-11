@@ -1,0 +1,15 @@
+<mat-grid-list cols="6" rowHeight="200px">
+  <mat-grid-tile [colspan]="2" [rowspan]="2" [style.background]="blue">
+    <app-login>
+    </app-login>
+  </mat-grid-tile>
+
+  <mat-grid-tile [colspan]="4" [rowspan]="3" [style.background]="red">
+    <app-product-list></app-product-list>
+  </mat-grid-tile>
+
+  <mat-grid-tile [colspan]="2" [rowspan]="1" [style.background]="blue">
+    Result
+
+  </mat-grid-tile>
+</mat-grid-list>
