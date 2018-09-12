@@ -4,9 +4,7 @@ import { HttpClient } from "@angular/common/http";
 import { Observable, Subject, of } from 'rxjs';
 import { map, filter, switchMap } from 'rxjs/operators';
 
-import 'rxjs/Rx'; //get everything from Rx    
-import 'rxjs/add/operator/';
-import "rxjs/add/operator/map";
+import 'rxjs'; //get everything from Rx    
 
 @Injectable({
   providedIn: 'root'
@@ -48,9 +46,9 @@ export class VProductListService {
   /**
    * Return an observable with the list of products
    */
-	getproducts(): Observable<any> {
+	getProducts(): Observable<any> {
 		return this.http.get(this.jsonFileURL).pipe(map((response: Response) => {
-			return <any>response.json()
+			return <any>response
 		}));
 	}
 }

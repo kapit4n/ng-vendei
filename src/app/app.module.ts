@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from "@angular/common/http"; 
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/auth/login/login.component';
@@ -21,6 +22,7 @@ import { ProductListComponent } from './components/vendei/product-list/product-l
 import { ShoppingCartComponent } from './components/vendei/shopping-cart/shopping-cart.component';
 import { CalTableComponent } from './components/vendei/cal-table/cal-table.component';
 import { SelectedListComponent } from './components/vendei/selected-list/selected-list.component';
+import { VProductListService } from './services/vendei/v-product-list.service';
 
 const appRoutes: Routes = [
   { path: 'mock', component: MainScreenshotComponent },
@@ -52,6 +54,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes, { enableTracing: true }),
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     MatButtonModule,
     MatCheckboxModule,
     MatCardModule,
@@ -61,7 +64,7 @@ const appRoutes: Routes = [
     MatListModule,
     MatTableModule
   ],
-  providers: [],
+  providers: [VProductListService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -3,24 +3,24 @@
         "id": 1,
         "name": "Product 1",
         "icon": "https://pbs.twimg.com/profile_images/3577703021/498a60681bea3b182f9ac73b8070b3ce.jpeg",
-        "img": "https://images.performgroup.com/di/library/GOAL/d0/ef/lionel-messi-alaves-barcelona-laliga-26082017_16xo7b0uco5qf1q7jwbto2606o.jpg",
+        "img": "https://images.performgroup.com/di/library/GOAL/d0/ef/lionel-messi-alaves-barcelona-laliga-26082017_16xo7b0uco5qf1q7jwbto2606o.jpg"
     },
     {
         "id": 2,
         "name": "Product 2",
         "icon": "https://pbs.twimg.com/profile_images/587962505693044736/gZU6eBM_.jpg",
-        "img": "https://static.independent.co.uk/s3fs-public/styles/article_small/public/thumbnails/image/2017/10/24/17/ronaldo-2.jpg",
+        "img": "https://static.independent.co.uk/s3fs-public/styles/article_small/public/thumbnails/image/2017/10/24/17/ronaldo-2.jpg"
     },
     {
         "id": 3,
         "name": "Product 3",
         "icon": "https://cc-media-foxit.fichub.com/image/fox-it-foxsports/0ba3971b-31dd-4a54-85d1-ba5580c74425/ousmane-dembele-128x128.png",
-        "img": "https://images.cdn.fourfourtwo.com/sites/fourfourtwo.com/files/styles/image_landscape/public/dembele_bar.jpg?itok=obOKo-uY",
+        "img": "https://images.cdn.fourfourtwo.com/sites/fourfourtwo.com/files/styles/image_landscape/public/dembele_bar.jpg?itok=obOKo-uY"
     },
     {
         "id": 4,
         "name": "Product 4",
         "icon": "https://cdn.sofifa.org/18/players/155862.png",
-        "img": "https://theworldgame.sbs.com.au/sites/sbs.com.au.theworldgame/files/styles/full/public/images/r/a/ramos-cropped_1jl6nzk4tut7a13vdgou26he7o.jpg",
+        "img": "https://theworldgame.sbs.com.au/sites/sbs.com.au.theworldgame/files/styles/full/public/images/r/a/ramos-cropped_1jl6nzk4tut7a13vdgou26he7o.jpg"
     }
 ]
