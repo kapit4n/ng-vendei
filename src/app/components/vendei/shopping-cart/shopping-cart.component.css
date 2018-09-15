@@ -1,0 +1,127 @@
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
+  
+  .shopping-cart-container {
+      width: 36%; height: 500px; display: inline-block;
+  }
+  .selected-list {
+      overflow-y:scroll; position:relative; height: 500px; background-color: red;
+  }
+  .cal-table {
+      width: 100%; height: 300px; background: red;
+  }
+  .product-list {
+      width: 58%; height: 100%;  display: inline-block; position: absolute; top: 1px; background-color: red;
+  }
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  
+  .shopping-cart-container {
+      width: 36%; height: 500px; display: inline-block;
+  }
+  .selected-list {
+      overflow-y:scroll; position:relative; height: 500px; background-color: blue;
+  }
+  .cal-table {
+      width: 100%; height: 300px; background: blue;
+  }
+  .product-list {
+      width: 58%; height: 100%;  display: inline-block; position: absolute; top: 1px; background-color: blue;
+  }
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .shopping-cart-container {
+      width: 36%; height: 500px; display: inline-block;
+  }
+  .selected-list {
+      overflow-y:scroll; position:relative; height: 500px; background-color: green;
+  }
+  .cal-table {
+      width: 100%; height: 300px; background: green;
+  }
+  .product-list {
+      width: 58%; height: 100%;  display: inline-block; position: absolute; top: 1px; background-color: green;
+  }
+  
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  
+  .shopping-cart-container {
+      width: 36%; height: 500px; display: inline-block;
+  }
+  .selected-list {
+      overflow-y:scroll; position:relative; height: 500px; background-color: yellow;
+  }
+  .cal-table {
+      width: 100%; height: 300px; background: yellow;
+  }
+  .product-list {
+      width: 58%; height: 100%;  display: inline-block; position: absolute; top: 1px; background-color: yellow;
+  }
+  
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+   .shopping-cart-container {
+      width: 100%; height: 500px; display: inline-block;
+  }
+  .selected-list {
+      overflow-y:scroll; position:relative; height: 200px; background-color: brown;
+  }
+  .cal-table {
+      width: 100%; height: 300px; background: brown;
+  }
+  .product-list {
+      width: 100%; height: 100%;  display: inline-block;background-color: brown;
+  }
+ 
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+   .shopping-cart-container {
+      width: 100%; height: 500px; display: inline-block;
+  }
+  .selected-list {
+      overflow-y:scroll; position:relative; height: 200px; background-color: blueviolet;
+  }
+  .cal-table {
+      width: 100%; height: 300px; background: blueviolet;
+  }
+  .product-list {
+      width: 100%; height: 100%;  display: inline-block;background-color: blueviolet;
+  }
+  
+}

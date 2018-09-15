@@ -20,6 +20,18 @@ export class SelectedListComponent implements OnInit {
     {
       name: 'Product 3',
       cost: 50,
+    },
+    {
+      name: 'Product 4',
+      cost: 50,
+    },
+    {
+      name: 'Product 5',
+      cost: 50,
+    },
+    {
+      name: 'Product 2',
+      cost: 30,
     }
   ];
   ngOnInit() {
