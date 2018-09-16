@@ -1,40 +1,43 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-selected-list',
-  templateUrl: './selected-list.component.html',
-  styleUrls: ['./selected-list.component.css']
+  selector: "app-selected-list",
+  templateUrl: "./selected-list.component.html",
+  styleUrls: ["./selected-list.component.css"]
 })
 export class SelectedListComponent implements OnInit {
-
-  constructor() { }
+  constructor() {}
   products: any[] = [
     {
-      name: 'Product 1',
-      cost: 14,
+      id: 600,
+      name: "Cellphone",
+      img:
+        "https://img.purch.com/w/660/aHR0cDovL3d3dy5saXZlc2NpZW5jZS5jb20vaW1hZ2VzL2kvMDAwLzAyMC83NzIvb3JpZ2luYWwvaXBob25lLTAyLmpwZw=="
     },
     {
-      name: 'Product 2',
-      cost: 30,
+      id: 600,
+      name: "TV",
+      img:
+        "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/5900/5900135_sd.jpg;maxHeight=640;maxWidth=550"
     },
     {
-      name: 'Product 3',
-      cost: 50,
+      id: 600,
+      name: "Camera",
+      img:
+        "https://rukminim1.flixcart.com/image/312/312/camera/j/s/u/canon-eos-1300d-dslr-original-imaeh33eyhy9gcgm.jpeg?q=70"
     },
     {
-      name: 'Product 4',
-      cost: 50,
+      id: 600,
+      name: "Laptop",
+      img:
+        "https://images-na.ssl-images-amazon.com/images/I/61aZwj3rIyL._SX425_.jpg"
     },
     {
-      name: 'Product 5',
-      cost: 50,
-    },
-    {
-      name: 'Product 2',
-      cost: 30,
+      id: 600,
+      name: "Tablet",
+      img:
+        "https://assets.pcmag.com/media/images/466265-amazon-fire-hd-10.jpg?width=810&height=456"
     }
   ];
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

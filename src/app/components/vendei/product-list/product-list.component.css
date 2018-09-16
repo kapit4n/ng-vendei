@@ -3,8 +3,7 @@
 }
 
 .product-list-item-t {
-  width: 100px; height: 100px; display: inline-block; border-style: solid; margin: 5px;
-  background-position: right top;background-repeat: no-repeat; background-size: 100px;
+  width: 130px; height: 100px; display: inline-block; border-style: solid; margin: 5px;
 }
 
 .items-container {
