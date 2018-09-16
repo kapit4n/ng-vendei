@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
   selector: "app-selected-list",
@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SelectedListComponent implements OnInit {
   constructor() {}
+
   products: any[] = [
     {
       id: 600,
@@ -40,4 +41,8 @@ export class SelectedListComponent implements OnInit {
     }
   ];
   ngOnInit() {}
+
+  selectedItem(product: any) {
+    console.log(product);
+  }
 }

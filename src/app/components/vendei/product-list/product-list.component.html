@@ -10,7 +10,7 @@
 <div class="items-container">
     <div class="product-list-item-t" *ngFor="let product of products" 
         [style.background]="'url(' + product.img + ')'" [style.background-size]="'cover'"
-        >
+        (click)="addProduct(product)">
         <span style="position:relative; top: 3px; float: right; background: white;">
             Bs {{product.id}}
         </span>

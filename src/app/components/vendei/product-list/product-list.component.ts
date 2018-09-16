@@ -206,4 +206,8 @@ export class ProductListComponent implements OnInit {
   ngOnInit() {
     this.pListSvc.getProducts().subscribe(res => console.log(res));
   }
+
+  addProduct(product: any) {
+    console.log(product);
+  }
 }

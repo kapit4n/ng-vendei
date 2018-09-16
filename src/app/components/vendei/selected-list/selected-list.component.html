@@ -1,12 +1,12 @@
-  <mat-list>
-    <h3 mat-subheader>Products</h3>
-    <mat-list-item *ngFor="let product of products">
-      <mat-icon mat-list-icon><img [src]="product.img" height="30px" width="30px" alt=""></mat-icon>
-      <div style="display: inline-block;" mat-line>
-        <div style="display: inline-block; width: 80px;">{{product.name}}</div>
-        <p style="display: inline-block; width: 80px; float: right;"> Bs {{product.id * 100}} </p>
-        <div style="display: block; ">100 at {{product.id}}</div>
-      </div>
-      <mat-divider></mat-divider>
-    </mat-list-item>
-  </mat-list>
+<mat-list>
+  <h3 mat-subheader>Products</h3>
+  <mat-list-item *ngFor="let product of products" (click)="selectedItem(product)">
+    <mat-icon mat-list-icon><img [src]="product.img" height="30px" width="30px" alt=""></mat-icon>
+    <div style="display: inline-block;" mat-line>
+      <div style="display: inline-block; width: 80px;">{{product.name}}</div>
+      <p style="display: inline-block; width: 80px; float: right;"> Bs {{product.id * 100}} </p>
+      <div style="display: block; ">100 at {{product.id}}</div>
+    </div>
+    <mat-divider></mat-divider>
+  </mat-list-item>
+</mat-list>
