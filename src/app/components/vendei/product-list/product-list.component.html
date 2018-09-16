@@ -1,30 +1,24 @@
-<div style="width: 100%; height: 20%;">
+<div class="category-container">
     <mat-icon>home</mat-icon>
-    <div style="width: 85px; height: 30px; display: inline-block; border-style: solid; margin: 5px;">Category</div>
-    <div style="width: 85px; height: 30px; display: inline-block; border-style: solid; margin: 5px;">Category</div>
-    <div style="width: 85px; height: 30px; display: inline-block; border-style: solid; margin: 5px;">Category</div>
-    <div style="width: 85px; height: 30px; display: inline-block; border-style: solid; margin: 5px;">Category</div>
-    <div style="width: 85px; height: 30px; display: inline-block; border-style: solid; margin: 5px;">Category</div>
+    <div class="category-item">Category</div>
+    <div class="category-item">Category</div>
+    <div class="category-item">Category</div>
+    <div class="category-item">Category</div>
+    <div class="category-item">Category</div>
+    <mat-form-field class="search-form">
+        <input matInput type="text" placeholder="Search product">
+    </mat-form-field>
 </div>
-<div style="width: 100%; height: 80%;">
-    <div style="width: 100px; height: 100px; display: inline-block; border-style: solid; margin: 5px;">1</div>
-    <div style="width: 100px; height: 100px; display: inline-block; border-style: solid; margin: 5px;">1</div>
-    <div style="width: 100px; height: 100px; display: inline-block; border-style: solid; margin: 5px;">1</div>
-    <div style="width: 100px; height: 100px; display: inline-block; border-style: solid; margin: 5px;">1</div>
-    <div style="width: 100px; height: 100px; display: inline-block; border-style: solid; margin: 5px;">1</div>
-    <div style="width: 100px; height: 100px; display: inline-block; border-style: solid; margin: 5px;">1</div>
-    <div style="width: 100px; height: 100px; display: inline-block; border-style: solid; margin: 5px;">1</div>
-    <div style="width: 100px; height: 100px; display: inline-block; border-style: solid; margin: 5px;">1</div>
-    <div style="width: 100px; height: 100px; display: inline-block; border-style: solid; margin: 5px;">1</div>
-    <div style="width: 100px; height: 100px; display: inline-block; border-style: solid; margin: 5px;">1</div>
-    <div style="width: 100px; height: 100px; display: inline-block; border-style: solid; margin: 5px;">1</div>
-    <div style="width: 100px; height: 100px; display: inline-block; border-style: solid; margin: 5px;">1</div>
-    <div style="width: 100px; height: 100px; display: inline-block; border-style: solid; margin: 5px;">1</div>
-    <div style="width: 100px; height: 100px; display: inline-block; border-style: solid; margin: 5px;">1</div>
-    <div style="width: 100px; height: 100px; display: inline-block; border-style: solid; margin: 5px;">1</div>
-    <div style="width: 100px; height: 100px; display: inline-block; border-style: solid; margin: 5px;">1</div>
-    <div style="width: 100px; height: 100px; display: inline-block; border-style: solid; margin: 5px;">1</div>
-    <div style="width: 100px; height: 100px; display: inline-block; border-style: solid; margin: 5px;">1</div>
-    <div style="width: 100px; height: 100px; display: inline-block; border-style: solid; margin: 5px;">1</div>
-    <div style="width: 100px; height: 100px; display: inline-block; border-style: solid; margin: 5px;">1</div>
+<div class="items-container">
+    <div class="product-list-item-t" *ngFor="let product of products" 
+        [style.background]="'url(' + product.img + ')'" [style.background-size]="'cover'"
+        >
+        <span style="position:relative; top: 3px; float: right; background: white;">
+            Bs {{product.id}}
+        </span>
+        <span style="position:relative; top: 60px; float: left; background: white;">
+            {{product.name}}
+        </span>
+
+    </div>
 </div>
