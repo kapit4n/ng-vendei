@@ -13,6 +13,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatListModule } from '@angular/material/list';
 import { MatTableModule } from '@angular/material/table';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './components/vendei/page-not-found/page-not-found.component';
@@ -21,7 +22,7 @@ import { MainScreenshotComponent } from './components/vendei/main-screenshot/mai
 import { ProductListComponent } from './components/vendei/product-list/product-list.component';
 import { ShoppingCartComponent } from './components/vendei/shopping-cart/shopping-cart.component';
 import { CalTableComponent } from './components/vendei/cal-table/cal-table.component';
-import { SelectedListComponent } from './components/vendei/selected-list/selected-list.component';
+import { SelectedListComponent, SelectedProductEditDialog } from './components/vendei/selected-list/selected-list.component';
 import { VProductListService } from './services/vendei/v-product-list.service';
 
 const appRoutes: Routes = [
@@ -48,7 +49,8 @@ const appRoutes: Routes = [
     PageNotFoundComponent,
     ShoppingCartComponent,
     CalTableComponent,
-    SelectedListComponent
+    SelectedListComponent,
+    SelectedProductEditDialog
   ],
   imports: [
     RouterModule.forRoot(appRoutes, { enableTracing: true }),
@@ -62,9 +64,11 @@ const appRoutes: Routes = [
     MatGridListModule,
     MatIconModule,
     MatListModule,
-    MatTableModule
+    MatTableModule,
+    MatDialogModule
   ],
   providers: [VProductListService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [SelectedProductEditDialog]
 })
 export class AppModule {}
