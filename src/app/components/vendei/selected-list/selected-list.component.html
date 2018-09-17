@@ -1,6 +1,6 @@
 <mat-list>
   <h3 mat-subheader>Products</h3>
-  <mat-list-item *ngFor="let product of products" (click)="selectedItem(product)">
+  <mat-list-item *ngFor="let product of selectedProducts" (click)="selectedItem(product)">
     <mat-icon mat-list-icon><img [src]="product.img" height="30px" width="30px" alt=""></mat-icon>
     <div style="display: inline-block;" mat-line>
       <div style="display: inline-block; width: 80px;">{{product.name}}</div>

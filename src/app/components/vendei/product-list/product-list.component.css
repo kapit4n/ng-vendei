@@ -4,9 +4,15 @@
 }
 
 .product-list-item-t:hover {
+    opacity: 0.8;
+    filter: alpha(opacity=80); /* For IE8 and earlier */
+    cursor: pointer;
+}
+
+.product-list-item-t:active {
+    color: blue;
     opacity: 0.5;
     filter: alpha(opacity=50); /* For IE8 and earlier */
-    cursor: pointer;
 }
 
 

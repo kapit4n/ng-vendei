@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { VProductListService } from '../../../services/vendei/v-product-list.service'
 
 @Component({
@@ -7,6 +7,7 @@ import { VProductListService } from '../../../services/vendei/v-product-list.ser
   styleUrls: ["./product-list.component.css"]
 })
 export class ProductListComponent implements OnInit {
+  @Input() selected: any[];
   products = [];
   constructor(private pListSvc: VProductListService) {}
 
