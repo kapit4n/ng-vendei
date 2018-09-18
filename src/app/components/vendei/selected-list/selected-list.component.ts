@@ -30,8 +30,9 @@ export class SelectedListComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.pResult = result;
-      console.log(this.pResult);
+      if (result) {
+        this.selectedProducts.filter(p => p.id == result.id)[0].quantity = result.quantity;
+      }
     });
   }
 
