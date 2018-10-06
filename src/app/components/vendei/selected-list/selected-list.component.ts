@@ -16,8 +16,9 @@ export interface DialogData {
 export class SelectedListComponent implements OnInit {
   pResult: any;
   name: string = "Luis";
-  @Input()
-  selectedProducts: any[];
+  @Input()selectedProducts: any[];
+  @Input() removeProduct: Function;
+
 
   constructor(public dialog: MatDialog) {}
 
@@ -36,11 +37,10 @@ export class SelectedListComponent implements OnInit {
     });
   }
 
+  
+
   ngOnInit() {}
 
-  selectedItem(product: any) {
-    console.log(product);
-  }
 }
 
 @Component({

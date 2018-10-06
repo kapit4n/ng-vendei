@@ -1,6 +1,6 @@
 <div class="shopping-cart-container">
   <div class="selected-list">
-    <app-selected-list [selectedProducts]="selectedProducts"></app-selected-list>
+    <app-selected-list [selectedProducts]="selectedProducts" [removeProduct]="removeProduct.bind(this)"></app-selected-list>
   </div>
   <app-cal-table class="cal-table"></app-cal-table>
 </div>

@@ -1,17 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-shopping-cart',
-  templateUrl: './shopping-cart.component.html',
-  styleUrls: ['./shopping-cart.component.css']
+  selector: "app-shopping-cart",
+  templateUrl: "./shopping-cart.component.html",
+  styleUrls: ["./shopping-cart.component.css"]
 })
 export class ShoppingCartComponent implements OnInit {
-
-  constructor() { }
+  constructor() {}
 
   selectedProducts = [];
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
+  public removeProduct(product: any) {
+    this.selectedProducts = this.selectedProducts.filter(
+      p => p.id != product.id
+    );
+  }
 }

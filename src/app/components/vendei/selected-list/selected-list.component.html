@@ -1,10 +1,12 @@
 <mat-list>
   <h3 mat-subheader>Products</h3>
-  <mat-list-item *ngFor="let product of selectedProducts" (click)="openDialog(product)">
+  <mat-list-item *ngFor="let product of selectedProducts" style="cursor: initial;">
     <mat-icon mat-list-icon><img [src]="product.img" height="30px" width="30px" alt=""></mat-icon>
     <div style="display: inline-block;" mat-line>
       <div style="display: inline-block; width: 80px;">{{product.name}}</div>
-      <p style="display: inline-block; width: 80px; float: right;"> Bs {{product.price * product.quantity}} </p>
+      <button mat-mini-fab style="float: right;"n (click)="removeProduct(product)"><mat-icon>clear</mat-icon></button>
+      <button mat-mini-fab style="float: right;" (click)="openDialog(product)"><mat-icon>edit</mat-icon></button>
+      <p style="width: 80px; float: right;"> Bs {{product.price * product.quantity}} </p>
       <div style="display: block; ">{{product.quantity}} at {{product.price}}</div>
     </div>
     <mat-divider></mat-divider>
