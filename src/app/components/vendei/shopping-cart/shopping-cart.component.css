@@ -10,13 +10,13 @@
       width: 36%; height: 500px; display: inline-block;
   }
   .selected-list {
-      overflow-y:scroll; position:relative; height: 500px; background-color: red;
+      overflow-y:scroll; position:relative; height: 500px; background-color: rgb(174, 175, 193);
   }
   .cal-table {
-      width: 100%; height: 300px; background: red;
+      width: 100%; height: 300px; background: rgb(174, 175, 193);
   }
   .product-list {
-      width: 64%; height: 100%;  display: inline-block; position: absolute; top: 1px; background-color: red;
+      width: 64%; height: 100%;  display: inline-block; position: absolute; top: 1px; background-color: rgb(174, 175, 193);
   }
 }
 
@@ -31,13 +31,13 @@
       width: 36%; height: 500px; display: inline-block;
   }
   .selected-list {
-      overflow-y:scroll; position:relative; height: 500px; background-color: blue;
+      overflow-y:scroll; position:relative; height: 500px; background-color: rgb(100, 111, 130);
   }
   .cal-table {
-      width: 100%; height: 300px; background: blue;
+      width: 100%; height: 300px; background: rgb(100, 111, 130);
   }
   .product-list {
-      width: 64%; height: 100%;  display: inline-block; position: absolute; top: 1px; background-color: blue;
+      width: 64%; height: 100%;  display: inline-block; position: absolute; top: 1px; background-color: rgb(100, 111, 130);
   }
 }
 
@@ -51,13 +51,13 @@
       width: 36%; height: 500px; display: inline-block;
   }
   .selected-list {
-      overflow-y:scroll; position:relative; height: 500px; background-color: green;
+      overflow-y:scroll; position:relative; height: 500px; background-color: rgb(92, 114, 90);
   }
   .cal-table {
-      width: 100%; height: 300px; background: green;
+      width: 100%; height: 300px; background: rgb(92, 114, 90);
   }
   .product-list {
-      width: 64%; height: 100%;  display: inline-block; position: absolute; top: 1px; background-color: green;
+      width: 64%; height: 100%;  display: inline-block; position: absolute; top: 1px; background-color: rgb(92, 114, 90);
   }
   
 }
@@ -73,13 +73,13 @@
       width: 36%; height: 500px; display: inline-block;
   }
   .selected-list {
-      overflow-y:scroll; position:relative; height: 500px; background-color: yellow;
+      overflow-y:scroll; position:relative; height: 500px; background-color: rgb(186, 183, 120);
   }
   .cal-table {
-      width: 100%; height: 300px; background: yellow;
+      width: 100%; height: 300px; background: rgb(186, 183, 120);
   }
   .product-list {
-      width: 64%; height: 100%;  display: inline-block; position: absolute; top: 1px; background-color: yellow;
+      width: 64%; height: 100%;  display: inline-block; position: absolute; top: 1px; background-color: rgb(186, 183, 120);
   }
   
 }
@@ -94,13 +94,13 @@
       width: 100%; height: 500px; display: inline-block;
   }
   .selected-list {
-      overflow-y:scroll; position:relative; height: 200px; background-color: brown;
+      overflow-y:scroll; position:relative; height: 200px; background-color: rgb(142, 95, 87);
   }
   .cal-table {
-      width: 100%; height: 300px; background: brown;
+      width: 100%; height: 300px; background: rgb(142, 95, 87);
   }
   .product-list {
-      width: 100%; height: 100%;  display: inline-block;background-color: brown;
+      width: 100%; height: 100%;  display: inline-block;background-color: rgb(142, 95, 87);
   }
  
 }
@@ -115,13 +115,13 @@
       width: 100%; height: 500px; display: inline-block;
   }
   .selected-list {
-      overflow-y:scroll; position:relative; height: 200px; background-color: blueviolet;
+      overflow-y:scroll; position:relative; height: 200px; background-color: rgb(168, 156, 154);
   }
   .cal-table {
-      width: 100%; height: 300px; background: blueviolet;
+      width: 100%; height: 300px; background: rgb(168, 156, 154);
   }
   .product-list {
-      width: 100%; height: 100%;  display: inline-block;background-color: blueviolet;
+      width: 100%; height: 100%;  display: inline-block;background-color: rgb(168, 156, 154);
   }
   
 }
