@@ -1,8 +1,10 @@
 <div class="category-container">
     <mat-icon>home</mat-icon>
-    <div class="category-item">All</div>
-    <div class="category-item">Category</div>
-    <div class="category-item">Category</div>
+    <div class="category-item" *ngFor="let cat of categories">
+        <button mat-button style="width: 100%;" (click)="filterByCategory(cat)">
+            {{cat.name}}
+        </button>
+    </div>
     <mat-form-field class="search-form">
         <input matInput type="text" placeholder="Search product">
     </mat-form-field>

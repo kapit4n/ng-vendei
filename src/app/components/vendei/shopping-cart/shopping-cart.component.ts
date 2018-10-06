@@ -17,4 +17,5 @@ export class ShoppingCartComponent implements OnInit {
       p => p.id != product.id
     );
   }
+
 }

@@ -10,10 +10,16 @@ export class ProductListComponent implements OnInit {
   @Input()
   selectedProducts: any[];
   products = [];
+  originalP = [];
+  categories = [{id: 0, name: "All"},{id: 1, name: "Gatgets"}, {id: 2, name: "TVs"}, { id: 3, name: "Computer" }]
+  
   constructor(private pListSvc: VProductListService) {}
 
   ngOnInit() {
-    this.pListSvc.getProducts().subscribe(res => (this.products = res));
+    this.pListSvc.getProducts().subscribe(res => {
+      this.products = res;
+      this.originalP = res;
+    });
   }
 
   addProduct(product: any) {
@@ -24,4 +30,14 @@ export class ProductListComponent implements OnInit {
       this.selectedProducts.push(selectedP);
     }
   }
+
+  public filterByCategory(cat: any) {
+    if (cat.id > 0) {
+      this.products = this.originalP.filter(p => p.categoryId == cat.id);
+    } else {
+      this.products = this.originalP;
+    }
+
+  }
+
 }
