@@ -6,7 +6,7 @@
         </button>
     </div>
     <mat-form-field class="search-form">
-        <input matInput type="text" placeholder="Search product">
+        <input matInput type="text" placeholder="Search product" (keyup)="filterByName($event)">
     </mat-form-field>
 </div>
 <div class="items-container">

@@ -31,13 +31,24 @@ export class ProductListComponent implements OnInit {
     }
   }
 
-  public filterByCategory(cat: any) {
+  filterByCategory(cat: any) {
     if (cat.id > 0) {
       this.products = this.originalP.filter(p => p.categoryId == cat.id);
     } else {
       this.products = this.originalP;
     }
+  }
 
+  filterByName(event) {
+    let searchText = event.target.value;
+    if (searchText) {
+      let sText = searchText.toLowerCase();
+      this.products = this.originalP.filter(p =>
+        p.name.toLowerCase().includes(sText)
+      );
+    } else {
+      this.products = this.originalP;
+    }
   }
 
 }
