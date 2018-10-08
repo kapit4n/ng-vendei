@@ -9,6 +9,8 @@ import { VProductListService } from '../../../services/vendei/v-product-list.ser
 export class ProductListComponent implements OnInit {
   @Input()
   selectedProducts: any[];
+  @Input() recalTotal: Function;
+
   products = [];
   originalP = [];
   categories = [{id: 0, name: "All"},{id: 1, name: "Gatgets"}, {id: 2, name: "TVs"}, { id: 3, name: "Computer" }]
@@ -29,6 +31,7 @@ export class ProductListComponent implements OnInit {
       const selectedP = Object.assign({ quantity: 1 }, product);
       this.selectedProducts.push(selectedP);
     }
+    this.recalTotal();
   }
 
   filterByCategory(cat: any) {

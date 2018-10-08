@@ -1,10 +1,11 @@
 <div class="shopping-cart-container">
   <div class="selected-list">
     <app-selected-list [selectedProducts]="selectedProducts" [removeProduct]="removeProduct.bind(this)"></app-selected-list>
+    Total: {{total}}
   </div>
   <app-cal-table class="cal-table"></app-cal-table>
 </div>
 <div class="product-list">
-  <app-product-list [selectedProducts]="selectedProducts"></app-product-list>
+  <app-product-list [selectedProducts]="selectedProducts" [recalTotal]="recalTotal.bind(this)"></app-product-list>
 </div>
   
