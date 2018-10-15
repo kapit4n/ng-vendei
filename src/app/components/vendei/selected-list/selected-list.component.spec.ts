@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SelectedListComponent } from './selected-list.component';
+import { MatIconModule } from "@angular/material/icon";
+import { MatListModule } from "@angular/material/list";
+import { MatDialogModule } from "@angular/material/dialog";
 
 describe('SelectedListComponent', () => {
   let component: SelectedListComponent;
@@ -8,9 +11,9 @@ describe('SelectedListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SelectedListComponent ]
-    })
-    .compileComponents();
+      declarations: [SelectedListComponent],
+      imports: [MatIconModule, MatListModule, MatDialogModule]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
