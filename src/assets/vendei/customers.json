@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Luis Arce",
+    "img": "",
+    "address": "Cochabamba, 16 de Julio"
+  },
+  {
+    "id": 2,
+    "name": "Hansel Arce",
+    "img": "",
+    "address": "Cochabamba, Nestor Salasar 1616"
+  },
+  {
+    "id": 3,
+    "name": "Silvia Arce",
+    "img": "",
+    "address": "Argentina, Nestor Salasar 1616"
+  },
+  {
+    "id": 2,
+    "name": "Maria Arce",
+    "img": "",
+    "address": "Totora, Pilcomayo"
+  }
+]
