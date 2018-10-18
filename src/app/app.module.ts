@@ -24,21 +24,28 @@ import { ProductListComponent } from './components/vendei/product-list/product-l
 import { ShoppingCartComponent } from './components/vendei/shopping-cart/shopping-cart.component';
 import { CalTableComponent } from './components/vendei/cal-table/cal-table.component';
 import { SelectedListComponent, SelectedProductEditDialog } from './components/vendei/selected-list/selected-list.component';
-import { VProductListService } from './services/vendei/v-product-list.service';
+import { VProductsService } from './services/vendei/v-products.service';
+import { VCustomersService } from './services/vendei/v-customers.service';
+import { CustomerListComponent } from './components/vendei/customer-list/customer-list.component';
 
 const appRoutes: Routes = [
-  { path: 'mock', component: MainScreenshotComponent },
+  { path: "mock", component: MainScreenshotComponent },
   {
-    path: 'main',
+    path: "main",
     component: ShoppingCartComponent,
-    data: { title: 'Shopping Cart' }
+    data: { title: "Shopping Cart" }
   },
   {
-    path: '',
-    redirectTo: '/main',
-    pathMatch: 'full'
+    path: "customers",
+    component: CustomerListComponent,
+    data: { title: "Customers" }
   },
-  { path: '**', component: PageNotFoundComponent }
+  {
+    path: "",
+    redirectTo: "/main",
+    pathMatch: "full"
+  },
+  { path: "**", component: PageNotFoundComponent }
 ];
 
 @NgModule({
@@ -51,7 +58,8 @@ const appRoutes: Routes = [
     ShoppingCartComponent,
     CalTableComponent,
     SelectedListComponent,
-    SelectedProductEditDialog
+    SelectedProductEditDialog,
+    CustomerListComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes, { enableTracing: true }),
@@ -69,7 +77,7 @@ const appRoutes: Routes = [
     MatDialogModule,
     FormsModule
   ],
-  providers: [VProductListService],
+  providers: [VProductsService, VCustomersService],
   bootstrap: [AppComponent],
   entryComponents: [SelectedProductEditDialog]
 })
