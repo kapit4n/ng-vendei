@@ -27,6 +27,7 @@ import { SelectedListComponent, SelectedProductEditDialog } from './components/v
 import { VProductsService } from './services/vendei/v-products.service';
 import { VCustomersService } from './services/vendei/v-customers.service';
 import { CustomerListComponent } from './components/vendei/customer-list/customer-list.component';
+import { CustomersDialogComponent } from './components/vendei/customers-dialog/customers-dialog.component';
 
 const appRoutes: Routes = [
   { path: "mock", component: MainScreenshotComponent },
@@ -59,7 +60,8 @@ const appRoutes: Routes = [
     CalTableComponent,
     SelectedListComponent,
     SelectedProductEditDialog,
-    CustomerListComponent
+    CustomerListComponent,
+    CustomersDialogComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes, { enableTracing: true }),
