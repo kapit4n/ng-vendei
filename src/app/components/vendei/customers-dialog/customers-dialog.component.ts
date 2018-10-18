@@ -13,7 +13,7 @@ export interface DialogData {
 })
 export class CustomersDialogComponent implements OnInit {
   constructor(
-    public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
+    public dialogRef: MatDialogRef<CustomersDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData
   ) {}
 
