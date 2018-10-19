@@ -81,6 +81,6 @@ const appRoutes: Routes = [
   ],
   providers: [VProductsService, VCustomersService],
   bootstrap: [AppComponent],
-  entryComponents: [SelectedProductEditDialog]
+  entryComponents: [SelectedProductEditDialog, CustomersDialogComponent]
 })
 export class AppModule {}
