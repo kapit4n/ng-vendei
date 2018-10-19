@@ -4,8 +4,14 @@
     <mat-icon mat-list-icon><img [src]="product.img" height="30px" width="30px" alt=""></mat-icon>
     <div style="display: inline-block;" mat-line>
       <div style="display: inline-block; width: 80px;">{{product.name}}</div>
-      <button mat-mini-fab style="float: right;"n (click)="removeProduct(product)"><mat-icon>clear</mat-icon></button>
-      <button mat-mini-fab style="float: right;" (click)="openDialog(product)"><mat-icon>edit</mat-icon></button>
+      <div style="display: inline-block; padding-left: 10px; float: right;">
+        <button mat-mini-fab (click)="removeProduct(product)"><mat-icon>clear</mat-icon></button>
+      </div>
+      
+      <div style="display: inline-block; padding-left: 5px; float: right;">
+        <button mat-mini-fab style="" (click)="openDialog(product)"><mat-icon>edit</mat-icon></button>
+      </div>
+
       <p style="width: 80px; float: right;"> Bs {{product.price * product.quantity}} </p>
       <div style="display: block; ">{{product.quantity}} at {{product.price}}</div>
     </div>
