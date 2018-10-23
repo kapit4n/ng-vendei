@@ -1,7 +1,5 @@
 # NgVendei
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.0.
-
 ![Shopping cart](https://github.com/kapit4n/ng-vendei/raw/develop/mockups/vendei_shopping_cart_004.png)
 
 
