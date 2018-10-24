@@ -1,8 +1,8 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, Input } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 export interface DialogData {
-  animal: string;
+  selectedCustomer: Function;
   name: string;
 }
 
@@ -12,10 +12,14 @@ export interface DialogData {
   styleUrls: ["./customers-dialog.component.css"]
 })
 export class CustomersDialogComponent implements OnInit {
+  @Input() selectedCustomer: Function;
+
   constructor(
     public dialogRef: MatDialogRef<CustomersDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData
-  ) {}
+  ) {
+    console.log(data);
+  }
 
   ngOnInit() {}
 

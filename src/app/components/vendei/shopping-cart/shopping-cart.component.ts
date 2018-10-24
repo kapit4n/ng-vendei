@@ -7,11 +7,14 @@ import { Component, OnInit } from "@angular/core";
 })
 export class ShoppingCartComponent implements OnInit {
   total: number;
+
   constructor() {
     this.total = 0;
+    this.selectedCustomer = {id: 1, name: "None"}
   }
 
   selectedProducts = [];
+  selectedCustomer: any = {};
 
   ngOnInit() {}
 
@@ -24,10 +27,12 @@ export class ShoppingCartComponent implements OnInit {
 
   recalTotal() {
     this.total = 0;
-    
     this.selectedProducts.forEach(val => {
       this.total += val.price * val.quantity;
     });
   }
 
+  submitOrder() {
+    console.log(this.selectedCustomer);
+  }
 }

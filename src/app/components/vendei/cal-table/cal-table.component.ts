@@ -1,7 +1,6 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input, Output, EventEmitter} from "@angular/core";
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { CustomersDialogComponent } from "../customers-dialog/customers-dialog.component";
-
 
 enum PaymentType {
     PAYMONEY = 1,
@@ -15,6 +14,9 @@ enum PaymentType {
   styleUrls: ["./cal-table.component.css"]
 })
 export class CalTableComponent implements OnInit {
+  @Input() selectedCustomer: any;
+  @Output() selectedCustomerChange: EventEmitter<any> = new EventEmitter<any>;
+
   bills = [
     { name: "0.1", value: 0.1 },
     { name: "0.2", value: 0.2 },
@@ -24,6 +26,7 @@ export class CalTableComponent implements OnInit {
     { name: "5", value: 5 },
     { name: "10", value: 10 }
   ];
+
   numbers = [
     { name: "1", value: 1 },
     { name: "2", value: 2 },
@@ -54,7 +57,7 @@ export class CalTableComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(CustomersDialogComponent, {
       width: '250px',
-      data: {name: this.name, animal: this.animal}
+      data: { selectedCustomer: this.selectCustomer, selectCustomer: this.animal}
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -78,6 +81,13 @@ export class CalTableComponent implements OnInit {
   returnMoney() {
     this.payItems = this.bills;
     this.displayCurrentType = true;
+  }
+
+  public selectCustomer(customer: any) {
+    console.log(customer);
+    console.log(this.selectedCustomer);
+    this.selectedCustomer = customer;
+    console.log(this.selectedCustomer);
   }
 
   payIt(payItem: any) {}
