@@ -10,7 +10,7 @@ export class ShoppingCartComponent implements OnInit {
 
   constructor() {
     this.total = 0;
-    this.selectedCustomer = { id: 1, name: "None", ci: 6868678 };
+    this.selectedCustomer = { id: 1, name: "None", ci: 0 };
   }
 
   selectedProducts = [];
@@ -33,7 +33,9 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   submitOrder() {
-    console.log(this.selectedCustomer);
+    this.selectedCustomer = {name: "None", ci: 0};
+    this.selectedProducts = [];
+    this.total = 0;
   }
 
   public selectCustomer(customer: any) {
