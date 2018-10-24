@@ -1,8 +1,8 @@
 <div style="width: 30%; height: 150px; display: inline-block;">
   <div style="width: 100%;">
     <div>
-      Customer: Luis Arce <br />
-      CI: 6786459
+      Customer: {{selectedCustomer.name}} <br />
+      CI: {{selectedCustomer.ci}}
     </div>
     <button mat-raised-button (click)="openDialog()">Select Customer</button>
   </div>
