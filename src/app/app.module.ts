@@ -17,17 +17,17 @@ import { MatTableModule } from '@angular/material/table';
 import { MatDialogModule } from '@angular/material/dialog';
 
 import { RouterModule, Routes } from '@angular/router';
-import { PageNotFoundComponent } from './components/vendei/page-not-found/page-not-found.component';
+import { PageNotFoundComponent } from './comp/vendei/page-not-found/page-not-found.component';
 
-import { MainScreenshotComponent } from './components/vendei/main-screenshot/main-screenshot.component';
-import { ProductListComponent } from './components/vendei/product-list/product-list.component';
-import { ShoppingCartComponent } from './components/vendei/shopping-cart/shopping-cart.component';
-import { CalTableComponent } from './components/vendei/cal-table/cal-table.component';
-import { SelectedListComponent, SelectedProductEditDialog } from './components/vendei/selected-list/selected-list.component';
+import { MainScreenshotComponent } from './comp/vendei/main-screenshot/main-screenshot.component';
+import { ProductListComponent } from './comp/vendei/product-list/product-list.component';
+import { ShoppingCartComponent } from './comp/vendei/shopping-cart/shopping-cart.component';
+import { CalTableComponent } from './comp/vendei/cal-table/cal-table.component';
+import { SelectedListComponent, SelectedProductEditDialog } from './comp/vendei/selected-list/selected-list.component';
 import { VProductsService } from './services/vendei/v-products.service';
 import { VCustomersService } from './services/vendei/v-customers.service';
-import { CustomerListComponent } from './components/vendei/customer-list/customer-list.component';
-import { CustomersDialogComponent } from './components/vendei/customers-dialog/customers-dialog.component';
+import { CustomerListComponent } from './comp/vendei/customer-list/customer-list.component';
+import { CustomersDialogComponent } from './comp/vendei/customers-dialog/customers-dialog.component';
 
 const appRoutes: Routes = [
   { path: "mock", component: MainScreenshotComponent },
