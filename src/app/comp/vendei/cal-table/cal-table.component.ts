@@ -14,8 +14,8 @@ enum PaymentType {
   styleUrls: ["./cal-table.component.css"]
 })
 export class CalTableComponent implements OnInit {
+  @Input() selectCustomer: Function;
   @Input() selectedCustomer: any;
-  @Output() selectedCustomerChange: EventEmitter<any> = new EventEmitter<any>;
 
   bills = [
     { name: "0.1", value: 0.1 },
@@ -56,12 +56,15 @@ export class CalTableComponent implements OnInit {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(CustomersDialogComponent, {
-      width: '250px',
-      data: { selectedCustomer: this.selectCustomer, selectCustomer: this.animal}
+      width: "350px",
+      height: "350px",
+      data: {
+        selectCustomer: this.selectCustomer.bind(this),
+        animal: this.animal
+      }
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
       this.animal = result;
     });
   }
@@ -81,13 +84,6 @@ export class CalTableComponent implements OnInit {
   returnMoney() {
     this.payItems = this.bills;
     this.displayCurrentType = true;
-  }
-
-  public selectCustomer(customer: any) {
-    console.log(customer);
-    console.log(this.selectedCustomer);
-    this.selectedCustomer = customer;
-    console.log(this.selectedCustomer);
   }
 
   payIt(payItem: any) {}

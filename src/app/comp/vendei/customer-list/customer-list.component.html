@@ -2,7 +2,7 @@
  placeholder="Search" value="Data" required [(ngModel)]="searchText" [ngModelOptions]="{standalone: true}">
     
 <mat-list>
-  <mat-list-item *ngFor="let customer of customers" (click)="selectedCustomer(customer)">
+  <mat-list-item *ngFor="let customer of customers" (click)="selectCustomer(customer)">
     {{customer.name}}: {{customer.ci}}
   </mat-list-item>
 </mat-list>

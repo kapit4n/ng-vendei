@@ -6,7 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ["./customer-list.component.css"]
 })
 export class CustomerListComponent implements OnInit {
-  @Input() selectedCustomer: Function;
+  @Input() selectCustomer: Function;
 
   searchText: string = "";
   customers = [
