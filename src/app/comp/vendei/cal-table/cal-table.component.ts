@@ -4,8 +4,8 @@ import { CustomersDialogComponent } from "../customers-dialog/customers-dialog.c
 
 enum PaymentType {
     PAYMONEY = 1,
-    PAYRETURN,
-    DISCOUNT
+    PAYRETURN = 2,
+    DISCOUNT = 3
 }
 
 @Component({
@@ -39,6 +39,10 @@ export class CalTableComponent implements OnInit {
 
   payItems: Array<any>;
 
+  payedItems: Array<any>;
+  discountItems: Array<any>;
+  returnItems: Array<any>;
+
   currentType = "Bs";
   displayCurrentType: boolean;
 
@@ -69,22 +73,42 @@ export class CalTableComponent implements OnInit {
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+
+  }
 
   payMoney() {
     this.displayCurrentType = true;
     this.payItems = this.bills;
+    this.payType = PaymentType.PAYMONEY;
   }
 
   discount() {
     this.displayCurrentType = false;
     this.payItems = this.numbers;
+    this.payType = PaymentType.DISCOUNT;
   }
 
   returnMoney() {
     this.payItems = this.bills;
     this.displayCurrentType = true;
+    this.payType = PaymentType.PAYRETURN;
   }
 
-  payIt(payItem: any) {}
+  payIt(payItem: PaymentType) {
+
+    switch (payItem) {
+      case PaymentType.PAYMONEY:
+        this.payedItems.push(payItem);
+        break;
+      case PaymentType.DISCOUNT:
+        this.discountItems.push(payItem);
+        break;
+      case PaymentType.PAYRETURN:
+        this.returnItems.push(payItem);
+        break;
+      default:
+        break;
+    }
+  }
 }
