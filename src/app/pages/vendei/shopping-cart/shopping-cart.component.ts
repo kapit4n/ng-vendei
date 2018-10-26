@@ -16,6 +16,10 @@ export class ShoppingCartComponent implements OnInit {
   selectedProducts = [];
   selectedCustomer: any = {};
 
+  payedItems = [];
+  discountItems = [];
+  returnItems = [];
+
   ngOnInit() {}
 
   public removeProduct(product: any) {
@@ -33,9 +37,13 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   submitOrder() {
-    this.selectedCustomer = {name: "None", ci: 0};
+    this.selectedCustomer = { name: "None", ci: 0 };
     this.selectedProducts = [];
     this.total = 0;
+    this.payedItems = [];
+    this.discountItems = [];
+    this.returnItems = [];
+
   }
 
   public selectCustomer(customer: any) {

@@ -86,8 +86,11 @@ export class CalTableComponent implements OnInit {
 
   payItems: Array<any>;
 
+  @Input()
   payedItems: Array<any>;
+  @Input()
   discountItems: Array<any>;
+  @Input()
   returnItems: Array<any>;
 
   currentType = "Bs";
@@ -159,15 +162,19 @@ export class CalTableComponent implements OnInit {
         break;
     }
 
-    let totalPayment = this.payedItems.map(x => x.value).reduce((a, b) => a + b, 0);
+    let totalPayment = this.payedItems
+      .map(x => x.value)
+      .reduce((a, b) => a + b, 0);
     console.log("total is " + totalPayment);
-    
-    let totalReturn = this.returnItems.map(x => x.value).reduce((a, b) => a + b, 0);
+
+    let totalReturn = this.returnItems
+      .map(x => x.value)
+      .reduce((a, b) => a + b, 0);
     console.log("total is " + totalReturn);
 
-    let totalDiscount = this.discountItems.map(x => x.value).reduce((a, b) => a + b, 0);
+    let totalDiscount = this.discountItems
+      .map(x => x.value)
+      .reduce((a, b) => a + b, 0);
     console.log("total is " + totalDiscount);
-
-
   }
 }
