@@ -1,6 +1,21 @@
 <div style="width: 30%; height: 150px; display: inline-block;">
   <div style="width: 100%;">
     <div>
+      Payment: 
+      <span *ngFor="let payI of payedItems"><img [src]="payI.img" height="20" alt=""></span>
+    </div>
+    
+    <div>
+      Return:
+      <span *ngFor="let payI of returnItems"><img [src]="payI.img" height="20" alt=""></span>
+    </div>
+    
+    <div>
+      Discount:
+      <span *ngFor="let payI of discountItems">{{payI.name}};</span>
+    </div>
+
+    <div>
       Customer: {{selectedCustomer.name}} <br />
       CI: {{selectedCustomer.ci}}
     </div>
