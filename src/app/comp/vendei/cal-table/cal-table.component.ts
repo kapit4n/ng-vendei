@@ -16,6 +16,10 @@ enum PaymentType {
 export class CalTableComponent implements OnInit {
   @Input()
   selectCustomer: Function;
+  
+  @Input()
+  calTotals: Function;
+
   @Input()
   selectedCustomer: any;
 
@@ -93,6 +97,15 @@ export class CalTableComponent implements OnInit {
   @Input()
   returnItems: Array<any>;
 
+  
+  @Input()
+  totalPayed: number;
+  @Input()
+  totalDiscount: number;
+  @Input()
+  totalReturn: number;
+
+
   currentType = "Bs";
   displayCurrentType: boolean;
 
@@ -147,7 +160,6 @@ export class CalTableComponent implements OnInit {
   }
 
   payIt(payItem: any) {
-    console.log(payItem);
     switch (this.payType) {
       case PaymentType.PAYMONEY:
         this.payedItems.push(payItem);
@@ -162,19 +174,6 @@ export class CalTableComponent implements OnInit {
         break;
     }
 
-    let totalPayment = this.payedItems
-      .map(x => x.value)
-      .reduce((a, b) => a + b, 0);
-    console.log("total is " + totalPayment);
-
-    let totalReturn = this.returnItems
-      .map(x => x.value)
-      .reduce((a, b) => a + b, 0);
-    console.log("total is " + totalReturn);
-
-    let totalDiscount = this.discountItems
-      .map(x => x.value)
-      .reduce((a, b) => a + b, 0);
-    console.log("total is " + totalDiscount);
+    this.calTotals();
   }
 }

@@ -3,10 +3,16 @@
 
   <div class="selected-list">
     <app-selected-list [selectedProducts]="selectedProducts" [removeProduct]="removeProduct.bind(this)"></app-selected-list>
-    Total: {{total}}
+    Total: {{total}} <br>
+    Payed: {{totalPayed}} <br>
+    Returned: {{totalReturn}} <br>
+    Discount: {{totalDiscount}} <br>
+
   </div>
-  <app-cal-table class="cal-table"[selectCustomer]="selectCustomer.bind(this)"[selectedCustomer]="selectedCustomer"
-    [payedItems]="payedItems" [discountItems]="discountItems" [returnItems]="returnItems"></app-cal-table>
+  <app-cal-table class="cal-table" [selectCustomer]="selectCustomer.bind(this)" [selectedCustomer]="selectedCustomer"
+    [payedItems]="payedItems" [discountItems]="discountItems" [returnItems]="returnItems" 
+    [(totalPayed)]="totalPayed" [totalDiscount]="totalDiscount" [totalReturn]="totalReturn"
+    [calTotals]="calTotals.bind(this)"></app-cal-table>
 </div>
 <div class="product-list">
   <app-product-list [selectedProducts]="selectedProducts" [recalTotal]="recalTotal.bind(this)"></app-product-list>

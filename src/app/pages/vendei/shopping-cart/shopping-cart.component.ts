@@ -20,6 +20,10 @@ export class ShoppingCartComponent implements OnInit {
   discountItems = [];
   returnItems = [];
 
+  totalPayed = 0;
+  totalDiscount = 0;
+  totalReturn = 0;
+
   ngOnInit() {}
 
   public removeProduct(product: any) {
@@ -48,5 +52,19 @@ export class ShoppingCartComponent implements OnInit {
 
   public selectCustomer(customer: any) {
     this.selectedCustomer = customer;
+  }
+
+  public calTotals() {
+    this.totalPayed = this.payedItems
+      .map(x => x.value)
+      .reduce((a, b) => a + b, 0);
+
+    this.totalReturn = this.returnItems
+      .map(x => x.value)
+      .reduce((a, b) => a + b, 0);
+
+    this.totalDiscount = this.discountItems
+      .map(x => x.value)
+      .reduce((a, b) => a + b, 0);
   }
 }
