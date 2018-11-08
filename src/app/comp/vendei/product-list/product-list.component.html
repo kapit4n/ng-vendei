@@ -6,8 +6,13 @@
         </button>
     </div>
     <mat-form-field class="search-form">
-        <input matInput type="text" placeholder="Search product" (keyup)="filterByName($event)">
+        <input matInput type="text" placeholder="Search by Name" (keyup)="filterByName($event)">
     </mat-form-field>
+    
+    <mat-form-field class="search-form">
+        <input matInput type="text" placeholder="Code" (keyup.enter)="addByCode($event)">
+    </mat-form-field>
+
 </div>
 <div class="items-container">
     <div class="product-list-item-t" *ngFor="let product of products" 
