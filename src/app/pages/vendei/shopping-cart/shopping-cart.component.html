@@ -3,10 +3,18 @@
 
   <div class="selected-list">
     <app-selected-list [selectedProducts]="selectedProducts" [removeProduct]="removeProduct.bind(this)"></app-selected-list>
-    Total: {{total}} <br>
-    Payed: {{totalPayed}} <br>
-    Returned: {{totalReturn}} <br>
-    Discount: {{totalDiscount}} <br>
+    <span>
+      Total: {{total}}
+    </span>
+    <span *ngIf="totalPayed > 0">
+      Payed: {{totalPayed}}
+    </span>
+    <span *ngIf="toReturn > 0">
+      to return: {{toReturn}}
+    </span>
+    <span *ngIf="totalDiscount > 0">
+      Discount: {{totalDiscount}}
+    </span>
 
   </div>
   <app-cal-table class="cal-table" [selectCustomer]="selectCustomer.bind(this)" [selectedCustomer]="selectedCustomer"

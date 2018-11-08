@@ -110,12 +110,14 @@ export class CalTableComponent implements OnInit {
   displayCurrentType: boolean;
 
   payType: PaymentType;
+  payTypeLabel = "";
 
   animal: string;
   name: string;
 
   constructor(public dialog: MatDialog) {
     this.payType = PaymentType.PAYMONEY;
+    this.payTypeLabel = "PAYMENT";
     this.payItems = this.bills;
     this.displayCurrentType = true;
 
@@ -145,18 +147,21 @@ export class CalTableComponent implements OnInit {
     this.displayCurrentType = true;
     this.payItems = this.bills;
     this.payType = PaymentType.PAYMONEY;
+    this.payTypeLabel = "PAYMENT";
   }
 
   discount() {
     this.displayCurrentType = false;
     this.payItems = this.numbers;
     this.payType = PaymentType.DISCOUNT;
+    this.payTypeLabel = "DISCOUNT";
   }
 
   returnMoney() {
     this.payItems = this.bills;
     this.displayCurrentType = true;
     this.payType = PaymentType.PAYRETURN;
+    this.payTypeLabel = "RETURN";
   }
 
   payIt(payItem: any) {
