@@ -6,13 +6,13 @@
     <span>
       Total: {{total}}
     </span>
-    <span>
+    <span *ngIf="totalPayed > 0">
       Payed: {{totalPayed}}
     </span>
     <span *ngIf="toReturn > 0">
       to return: {{toReturn}}
     </span>
-    <span>
+    <span *ngIf="totalDiscount > 0">
       Discount: {{totalDiscount}}
     </span>
 
