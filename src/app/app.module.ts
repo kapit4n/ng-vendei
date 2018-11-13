@@ -30,6 +30,7 @@ import { CustomersDialogComponent } from './comp/vendei/customers-dialog/custome
 
 import { VProductsService } from './services/vendei/v-products.service';
 import { VCustomersService } from './services/vendei/v-customers.service';
+import { VConfigService } from './services/vendei/v-config.service';
 
 const appRoutes: Routes = [
   { path: "mock", component: MainScreenshotComponent },
@@ -81,7 +82,7 @@ const appRoutes: Routes = [
     MatDialogModule,
     FormsModule
   ],
-  providers: [VProductsService, VCustomersService],
+  providers: [VProductsService, VCustomersService, VConfigService],
   bootstrap: [AppComponent],
   entryComponents: [SelectedProductEditDialog, CustomersDialogComponent]
 })

@@ -7,11 +7,11 @@ import { Component, OnInit } from "@angular/core";
 })
 export class ShoppingCartComponent implements OnInit {
   total: number;
-  const emptyCustomer = { id: 1, name: "None", ci: 0 };
+  emptyCustomer = { id: 1, name: "None", ci: 0 };
 
   constructor() {
     this.total = 0;
-    this.selectedCustomer = Object.assign({}, emptyCustomer);
+    this.selectedCustomer = Object.assign({}, this.emptyCustomer);
   }
 
   selectedProducts = [];
@@ -43,7 +43,7 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   submitOrder() {
-    this.selectedCustomer = Object.assign({}, emptyCustomer);
+    this.selectedCustomer = Object.assign({}, this.emptyCustomer);
     this.selectedProducts = [];
     this.total = 0;
     this.payedItems = [];

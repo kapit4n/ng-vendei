@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { VProductsService } from '../../../services/vendei/v-products.service'
+import { VCategoriesService } from '../../../services/vendei/v-categories.service';
 
 @Component({
   selector: "app-product-list",
@@ -15,13 +16,18 @@ export class ProductListComponent implements OnInit {
   originalP = [];
   categories = [{id: 0, name: "All"},{id: 1, name: "Gatgets"}, {id: 2, name: "TVs"}, { id: 3, name: "Computer" }]
   
-  constructor(private productsSvc: VProductsService) {}
+  constructor(private productsSvc: VProductsService, private categoriesSvc: VCategoriesService) {}
 
   ngOnInit() {
     this.productsSvc.getProducts().subscribe(res => {
       this.products = res;
       this.originalP = res;
     });
+    
+    this.categoriesSvc.getAll().subscribe(res => {
+      this.categories = res;
+    });
+
   }
 
   addProduct(product: any) {

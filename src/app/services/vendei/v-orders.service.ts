@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-
 import { HttpClient } from "@angular/common/http";
 import { Observable, Subject, of, config } from 'rxjs';
 import { map, filter, switchMap } from 'rxjs/operators';
@@ -11,46 +10,16 @@ import 'rxjs'; //get everything from Rx
 @Injectable({
   providedIn: "root"
 })
-export class VProductsService {
-  /** Product list */
-  products: any[];
-
-  /** json URL */
+export class VOrdersService {
   private jsonFileURL: string = "../../assets/vendei/products.json";
-  private productsURL: string = "http://localhost:3000/api/products";
+  private ordersURL: string = "http://localhost:3000/api/orders";
 
-  /** Product List service constructor */
   constructor(private http: HttpClient, private configSvc: VConfigService) {}
 
   /**
-   * Returns the list of products
+   * Return an observable with the list of orders
    */
-  list(): any[] {
-    return this.products;
-  }
-
-  /**
-   * Return Product by category
-   */
-  productsByCategory(category: any): any[] {
-    return this.products;
-  }
-
-  /**
-   * Return an observable with the yeam that matches the id
-   */
-  getProductById(id: any): Observable<any> {
-    return this.http.get(this.jsonFileURL).pipe(
-      map((response: Response) => {
-        return <any>response.json()[id - 1];
-      })
-    );
-  }
-
-  /**
-   * Return an observable with the list of products
-   */
-  getProducts(): Observable<any> {
+  getAll(): Observable<any> {
     if (this.configSvc.isTest) {
       return this.http.get(this.jsonFileURL).pipe(
         map((response: Response) => {
@@ -59,12 +28,23 @@ export class VProductsService {
       );
     } else {
       return this.http
-        .get(this.productsURL)
+        .get(this.ordersURL)
         .pipe(
           map((response: Response) => {
             return <any>response;
           })
         );
     }
+  }
+
+  // save an order in API
+  save(order: any): Observable<any> {  
+    return this.http
+      .post(this.ordersURL, order)
+      .pipe(
+        map((response: Response) => {
+          return <any>response;
+        })
+      );
   }
 }
