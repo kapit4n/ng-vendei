@@ -1,24 +1,23 @@
 import { Injectable } from '@angular/core';
-
 import { HttpClient } from "@angular/common/http";
 import { Observable, Subject, of, config } from 'rxjs';
 import { map, filter, switchMap } from 'rxjs/operators';
 
-import { VConfigService } from './v-config.service'
+import {VConfigService} from './v-config.service'
 
 import 'rxjs'; //get everything from Rx    
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
-export class VCategoriesService {
-  private jsonFileURL: string = "../../assets/vendei/categories.json";
-  private categoriesURL: string = "http://localhost:3000/api/categories";
+export class VOrdersService {
+  private jsonFileURL: string = "../../assets/vendei/products.json";
+  private ordersURL: string = "http://localhost:3000/api/orders";
 
-  constructor(private http: HttpClient, private configSvc: VConfigService) { }
-  
+  constructor(private http: HttpClient, private configSvc: VConfigService) {}
+
   /**
-   * Return an observable with the list of categories
+   * Return an observable with the list of orders
    */
   getAll(): Observable<any> {
     if (this.configSvc.isTest) {
@@ -29,12 +28,23 @@ export class VCategoriesService {
       );
     } else {
       return this.http
-        .get(this.categoriesURL)
+        .get(this.ordersURL)
         .pipe(
           map((response: Response) => {
             return <any>response;
           })
         );
     }
+  }
+
+  // save an order in API
+  save(order: any): Observable<any> {  
+    return this.http
+      .post(this.ordersURL, order)
+      .pipe(
+        map((response: Response) => {
+          return <any>response;
+        })
+      );
   }
 }
