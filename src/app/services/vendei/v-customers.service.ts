@@ -3,6 +3,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable, Subject, of } from "rxjs";
 import { map, filter, switchMap } from "rxjs/operators";
+import { VConfigService } from './v-config.service'
 
 import "rxjs"; //get everything from Rx
 
@@ -11,19 +12,20 @@ import "rxjs"; //get everything from Rx
 })
 export class VCustomersService {
   /** Product list */
-  products: any[];
+  customers: any[];
 
   /** json URL */
   private jsonFileURL: string = "../../assets/vendei/customers.json";
+  private customersURL: string = "http://localhost:3000/api/customers";
 
   /** Product List service constructor */
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private configSvc: VConfigService) {}
 
   /**
    * Returns the list of products
    */
   list(): any[] {
-    return this.products;
+    return this.customers;
   }
 
   /**
@@ -40,11 +42,19 @@ export class VCustomersService {
   /**
    * Return an observable with the list of products
    */
-  getCustomers(): Observable<any> {
-    return this.http.get(this.jsonFileURL).pipe(
-      map((response: Response) => {
-        return <any>response;
-      })
-    );
+  getAll(): Observable<any> {
+    if (this.configSvc.isTest) {
+      return this.http.get(this.jsonFileURL).pipe(
+        map((response: Response) => {
+          return <any>response;
+        })
+      );
+    } else {
+      return this.http.get(this.customersURL).pipe(
+        map((response: Response) => {
+          return <any>response;
+        })
+      );
+    }
   }
 }
