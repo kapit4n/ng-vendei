@@ -6,9 +6,14 @@
     <span>
       Total: {{total}}
     </span>
-    <span *ngIf="totalPayed > 0">
+    <span *ngIf="(totalPayed - totalReturn) != total">
       Payed: {{totalPayed}}
     </span>
+    
+    <span *ngIf="total > 0 && (totalPayed - totalReturn) == total">
+      (PAID OUT)
+    </span>
+
     <span *ngIf="toReturn > 0">
       to return: {{toReturn}}
     </span>
