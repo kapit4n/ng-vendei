@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: "root"
 })
 export class VConfigService {
-  isTest: false;
+  isTest: true;
   baseUrl = "http://localhost:3000/api";
   constructor() {}
 }

@@ -13,6 +13,7 @@ export class ProductListComponent implements OnInit {
   @Input() recalTotal: Function;
 
   products = [];
+  productCode = "";
   originalP = [];
   categories = [{id: 0, name: "All"},{id: 1, name: "Gatgets"}, {id: 2, name: "TVs"}, { id: 3, name: "Computer" }]
   
@@ -62,10 +63,12 @@ export class ProductListComponent implements OnInit {
 
   addByCode(event) {
     let searchCode = event.target.value;
+    
     if (searchCode) {
       let cProduct = this.originalP.find(p => p.code.toLowerCase() == searchCode);
       if (cProduct) {
         this.addProduct(cProduct);
+        this.productCode = "";
       }
     }
   }

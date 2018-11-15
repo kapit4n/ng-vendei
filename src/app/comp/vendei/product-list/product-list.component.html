@@ -10,7 +10,7 @@
     </mat-form-field>
     
     <mat-form-field class="search-form">
-        <input matInput type="text" placeholder="Code" (keyup.enter)="addByCode($event)">
+        <input matInput type="text" placeholder="Code" (keyup.enter)="addByCode($event)" [(ngModel)]="productCode" [ngModelOptions]="{standalone: true}">
     </mat-form-field>
 
 </div>
