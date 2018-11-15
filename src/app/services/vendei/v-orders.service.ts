@@ -13,6 +13,7 @@ import 'rxjs'; //get everything from Rx
 export class VOrdersService {
   private jsonFileURL: string = "../../assets/vendei/products.json";
   private ordersURL: string = "http://localhost:3000/api/orders";
+  private detailsURL: string = "http://localhost:3000/api/orderDetails";
 
   constructor(private http: HttpClient, private configSvc: VConfigService) {}
 
@@ -41,6 +42,16 @@ export class VOrdersService {
   save(order: any): Observable<any> {  
     return this.http
       .post(this.ordersURL, order)
+      .pipe(
+        map((response: Response) => {
+          return <any>response;
+        })
+      );
+  }
+
+  saveDetail(detail: any): Observable<any> {
+    return this.http
+      .post(this.detailsURL, detail)
       .pipe(
         map((response: Response) => {
           return <any>response;

@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
+import { VCustomersService } from '../../../services/vendei/v-customers.service';
+
 @Component({
   selector: "app-customer-list",
   templateUrl: "./customer-list.component.html",
@@ -9,25 +11,14 @@ export class CustomerListComponent implements OnInit {
   @Input() selectCustomer: Function;
 
   searchText: string = "";
-  customers = [
-    {
-      id: 1,
-      name: "Luis Arce",
-      img: "",
-      address: "Cochabamba, 16 de Julio",
-      ci: 75757575
-    },
-    {
-      id: 2,
-      name: "Hansel Arce",
-      img: "",
-      address: "Cochabamba, Nestor Salasar 1616",
-      ci: 75757575
-    }
-  ];
-  constructor() {}
+  customers: any[];
+  constructor(private customersSvc: VCustomersService) {
 
-  ngOnInit() {}
+  }
+
+  ngOnInit() {
+    this.customersSvc.getAll().subscribe(customers => this.customers = customers);
+  }
 
   loadCustomers(){
     console.log("Loocking for " + this.searchText);

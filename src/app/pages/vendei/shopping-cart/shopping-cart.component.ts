@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { VOrdersService } from '../../../services/vendei/v-orders.service'
 
 @Component({
   selector: "app-shopping-cart",
@@ -7,15 +8,15 @@ import { Component, OnInit } from "@angular/core";
 })
 export class ShoppingCartComponent implements OnInit {
   total: number;
-  emptyCustomer = { id: 1, name: "None", ci: 0 };
+  emptyCustomer = { id: 1, name: "Anonimous", ci: 1234567 };
 
-  constructor() {
+  constructor(private ordersSvc: VOrdersService) {
     this.total = 0;
     this.selectedCustomer = Object.assign({}, this.emptyCustomer);
   }
 
   selectedProducts = [];
-  selectedCustomer: any = {};
+  selectedCustomer: any;
 
   payedItems = [];
   discountItems = [];
@@ -43,6 +44,40 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   submitOrder() {
+
+    let order = {} as any;
+    console.log(this.selectedCustomer);
+    order.customerId = this.selectedCustomer.id;
+    order.createdDate = new Date();
+    order.total = this.total;
+    order.description = "";
+    order.paid = true;
+    order.delivered = true;
+    order.deliveryDate = new Date();
+
+    let details = [];
+    this.selectedProducts.forEach(p => {
+      let detail = {} as any;
+      detail.quantity = p.quantity;
+      detail.price = p.price;
+      detail.discount = 0;
+      detail.totalPrice = Number(p.quantity) * Number(p.price);
+      detail.productId = p.id;
+      detail.orderId = "0";
+      details.push(detail);
+    })
+    let orderAux = {} as any;
+    setTimeout(() => {
+      this.ordersSvc.save(order).subscribe(o => {
+        details.forEach(d => {
+          d.orderId = order.id;
+          this.ordersSvc.saveDetail(d).subscribe(ds => {
+            console.log(ds);
+          })
+        });
+      });
+    }, 800);
+
     this.selectedCustomer = Object.assign({}, this.emptyCustomer);
     this.selectedProducts = [];
     this.total = 0;
