@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { VOrdersService } from '../../../services/vendei/v-orders.service'
+import { VInventoryService } from "../../../services/vendei/v-inventory.service";
 
 @Component({
   selector: "app-shopping-cart",
@@ -10,7 +11,7 @@ export class ShoppingCartComponent implements OnInit {
   total: number;
   emptyCustomer = { id: 1, name: "Anonimous", ci: 1234567 };
 
-  constructor(private ordersSvc: VOrdersService) {
+  constructor(private ordersSvc: VOrdersService, private inventorySvc: VInventoryService) {
     this.total = 0;
     this.selectedCustomer = Object.assign({}, this.emptyCustomer);
   }
@@ -72,7 +73,9 @@ export class ShoppingCartComponent implements OnInit {
         details.forEach(d => {
           d.orderId = order.id;
           this.ordersSvc.saveDetail(d).subscribe(ds => {
-            console.log(ds);
+            this.inventorySvc.reduceInventory(ds.productId, ds.quantity).subscribe(dat => {
+              console.log(dat);
+            });
           })
         });
       });
