@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ElementRef, ViewChild } from "@angular/core";
 import { VOrdersService } from '../../../services/vendei/v-orders.service'
 import { VInventoryService } from "../../../services/vendei/v-inventory.service";
 
@@ -11,7 +11,10 @@ export class ShoppingCartComponent implements OnInit {
   total: number;
   emptyCustomer = { id: 1, name: "Anonimous", ci: 1234567 };
 
-  constructor(private ordersSvc: VOrdersService, private inventorySvc: VInventoryService) {
+  constructor(
+    private ordersSvc: VOrdersService,
+    private inventorySvc: VInventoryService
+  ) {
     this.total = 0;
     this.selectedCustomer = Object.assign({}, this.emptyCustomer);
   }
@@ -27,6 +30,8 @@ export class ShoppingCartComponent implements OnInit {
   totalDiscount = 0;
   totalReturn = 0;
   toReturn = 0;
+
+  @ViewChild("toPrint") myDiv: ElementRef;
 
   ngOnInit() {}
 
@@ -45,6 +50,24 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   submitOrder() {
+    console.log(this.myDiv.nativeElement.innerHtml);
+
+    let popupWinindow
+    let innerContents = document.getElementById("toPrint").innerHTML;
+    popupWinindow = window.open('', '_blank', 'width=600,height=700,scrollbars=no,menubar=no,toolbar=no,location=no,status=no,titlebar=no');
+    popupWinindow.document.open();
+    popupWinindow.document.write(`<html><head><link rel="stylesheet" type="text/css" href="style.css" />
+    </head><body onload="window.print()">
+    <style>
+    img {
+        display: none !important;
+    }
+    button {
+        display: none !important;
+    }
+    </style>
+    ` + innerContents + "</html>");
+    popupWinindow.document.close();
 
     let order = {} as any;
     console.log(this.selectedCustomer);
@@ -66,17 +89,19 @@ export class ShoppingCartComponent implements OnInit {
       detail.productId = p.id;
       detail.orderId = "0";
       details.push(detail);
-    })
+    });
     let orderAux = {} as any;
     setTimeout(() => {
       this.ordersSvc.save(order).subscribe(o => {
         details.forEach(d => {
           d.orderId = order.id;
           this.ordersSvc.saveDetail(d).subscribe(ds => {
-            this.inventorySvc.reduceInventory(ds.productId, ds.quantity).subscribe(dat => {
-              console.log(dat);
-            });
-          })
+            this.inventorySvc
+              .reduceInventory(ds.productId, ds.quantity)
+              .subscribe(dat => {
+                console.log(dat);
+              });
+          });
         });
       });
     }, 800);
@@ -110,6 +135,6 @@ export class ShoppingCartComponent implements OnInit {
     this.totalDiscount = this.discountItems
       .map(x => x.value)
       .reduce((a, b) => a + b, 0);
-    this.toReturn = (this.totalPayed - this.total) - this.totalReturn;
+    this.toReturn = this.totalPayed - this.total - this.totalReturn;
   }
 }

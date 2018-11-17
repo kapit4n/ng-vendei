@@ -1,7 +1,7 @@
 <div class="shopping-cart-container">
   <button mat-raised-button (click)="submitOrder()">Submit</button>
 
-  <div class="selected-list">
+  <div class="selected-list" #toPrint id="toPrint">
     <app-selected-list [selectedProducts]="selectedProducts" [removeProduct]="removeProduct.bind(this)"></app-selected-list>
     <span>
       Total: {{total}}
