@@ -125,3 +125,11 @@
   }
   
 }
+@media print {
+    img {
+        display: none !important;
+    }
+    button {
+        display: none !important;
+    }
+}
