@@ -32,12 +32,16 @@ export class ShoppingCartComponent implements OnInit {
   totalDiscount = 0;
   totalReturn = 0;
   toReturn = 0;
+  printOrderCount = 0;
 
   @ViewChild("toPrint") myDiv: ElementRef;
 
   ngOnInit() {}
 
   public removeProduct(product: any) {
+    if (this.printOrderCount) {
+      return;
+    }
     this.selectedProducts = this.selectedProducts.filter(
       p => p.id != product.id
     );
@@ -45,15 +49,17 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   recalTotal() {
+    if (this.printOrderCount) {
+      return;
+    }
     this.total = 0;
     this.selectedProducts.forEach(val => {
       this.total += val.price * val.quantity;
     });
   }
 
-  submitOrder() {
-    console.log(this.myDiv.nativeElement.innerHtml);
-
+ 
+  printOrder() {
     let popupWinindow;
     let innerContents = document.getElementById("toPrint").innerHTML;
     popupWinindow = window.open(
@@ -62,8 +68,7 @@ export class ShoppingCartComponent implements OnInit {
       "width=600,height=400,scrollbars=no,menubar=no,toolbar=no,location=no,status=no,titlebar=no"
     );
     popupWinindow.document.open();
-    popupWinindow.document.write(
-      `<html><head><link rel="stylesheet" type="text/css" href="style.css" />
+    popupWinindow.document.write(`<html><head><link rel="stylesheet" type="text/css" href="style.css" />
     </head><body onload="window.print()">
     <style>
     img {
@@ -81,11 +86,50 @@ export class ShoppingCartComponent implements OnInit {
   }
 }
     </style>
-    ` +
-        innerContents +
-        "</html>"
-    );
+
+    <script>
+    (function() {
+
+    var beforePrint = function() {
+        console.log('Functionality to run before printing.');
+    };
+
+    var afterPrint = function() {
+        console.log('Functionality to run after printing');
+    };
+
+    if (window.matchMedia) {
+        var mediaQueryList = window.matchMedia('print');
+        mediaQueryList.addListener(function(mql) {
+            if (mql.matches) {
+                beforePrint();
+            } else {
+                afterPrint();
+            }
+        });
+    }
+
+    window.onbeforeprint = beforePrint;
+    window.onafterprint = afterPrint;
+
+}());
+    </script>
+
+    ` + innerContents + "</html>");
+
+    var selfx = this;
+    
     popupWinindow.document.close();
+  }
+
+  submitOrder() {
+    if (this.printOrderCount) {
+      this.printOrder();
+      this.clearItems();
+      return;
+    }
+    this.printOrderCount = 1;
+    this.printOrder();
 
     let order = {} as any;
     order.customerId = this.selectedCustomer.id;
@@ -123,6 +167,10 @@ export class ShoppingCartComponent implements OnInit {
       });
     }, 800);
 
+    
+  }
+
+  clearItems() {
     this.selectedCustomer = Object.assign({}, this.emptyCustomer);
     this.selectedProducts = [];
     this.total = 0;
@@ -134,25 +182,33 @@ export class ShoppingCartComponent implements OnInit {
     this.totalDiscount = 0;
     this.totalReturn = 0;
     this.toReturn = 0;
+    this.printOrderCount = 0;
+
   }
 
   public selectCustomer(customer: any) {
+    if (this.printOrderCount) {
+      return;
+    }
     this.selectedCustomer = customer;
   }
 
   public calTotals() {
-    this.totalPayed = this.payedItems
-      .map(x => x.value)
-      .reduce((a, b) => a + b, 0);
-
-    this.totalReturn = this.returnItems
-      .map(x => x.value)
-      .reduce((a, b) => a + b, 0);
-
-    this.totalDiscount = this.discountItems
-      .map(x => x.value)
-      .reduce((a, b) => a + b, 0);
-    this.toReturn = this.totalPayed - this.total - this.totalReturn;
+    if (this.printOrderCount) {
+      return;
+    }
+      this.totalPayed = this.payedItems
+        .map(x => x.value)
+        .reduce((a, b) => a + b, 0);
+  
+      this.totalReturn = this.returnItems
+        .map(x => x.value)
+        .reduce((a, b) => a + b, 0);
+  
+      this.totalDiscount = this.discountItems
+        .map(x => x.value)
+        .reduce((a, b) => a + b, 0);
+      this.toReturn = this.totalPayed - this.total - this.totalReturn;
   }
 
   
