@@ -28,7 +28,7 @@ export class ProductListComponent implements OnInit {
     private productsSvc: VProductsService,
     private categoriesSvc: VCategoriesService,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.productsSvc.getProducts().subscribe(res => {
@@ -83,6 +83,7 @@ export class ProductListComponent implements OnInit {
         this.productCode = "";
       }
     }
+    this.recalTotal();
   }
   openReports() {
     this.router.navigate(["/rep/products"]);

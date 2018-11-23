@@ -3,6 +3,12 @@ import { VOrdersService } from '../../../services/vendei/v-orders.service'
 import { VInventoryService } from "../../../services/vendei/v-inventory.service";
 import { Router } from "@angular/router";
 
+enum PaymentType {
+  PAYMONEY = 1,
+  PAYRETURN = 2,
+  DISCOUNT = 3
+}
+
 @Component({
   selector: "app-shopping-cart",
   templateUrl: "./shopping-cart.component.html",
@@ -28,6 +34,10 @@ export class ShoppingCartComponent implements OnInit {
   discountItems = [];
   returnItems = [];
 
+  paymentItemIds = 1;
+  discountItemIds = 1;
+  returnItemIds = 1;
+
   totalPayed = 0;
   totalDiscount = 0;
   totalReturn = 0;
@@ -36,7 +46,7 @@ export class ShoppingCartComponent implements OnInit {
 
   @ViewChild("toPrint") myDiv: ElementRef;
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   public removeProduct(product: any) {
     if (this.printOrderCount) {
@@ -56,9 +66,10 @@ export class ShoppingCartComponent implements OnInit {
     this.selectedProducts.forEach(val => {
       this.total += val.price * val.quantity;
     });
+    this.calTotals();
   }
 
- 
+
   printOrder() {
     let popupWinindow;
     let innerContents = document.getElementById("toPrint").innerHTML;
@@ -76,6 +87,9 @@ export class ShoppingCartComponent implements OnInit {
     }
     button {
         display: none !important;
+    }
+    .noPrint {
+      display: none;
     }
    @media print {  
   @page {
@@ -118,7 +132,7 @@ export class ShoppingCartComponent implements OnInit {
     ` + innerContents + "</html>");
 
     var selfx = this;
-    
+
     popupWinindow.document.close();
   }
 
@@ -164,25 +178,25 @@ export class ShoppingCartComponent implements OnInit {
               .subscribe(dat => {
                 console.log(dat);
               });
-            
+
             this.inventorySvc
               .updateTotalSelled(ds.productId, ds.totalPrice)
               .subscribe(dat => {
                 console.log(dat);
               });
-            
+
             this.inventorySvc
               .updateQuantitySelled(ds.productId, ds.quantity)
               .subscribe(dat => {
                 console.log(dat);
               });
-            
+
           });
         });
       });
     }, 800);
 
-    
+
   }
 
   clearItems() {
@@ -212,19 +226,62 @@ export class ShoppingCartComponent implements OnInit {
     if (this.printOrderCount) {
       return;
     }
-      this.totalPayed = this.payedItems
-        .map(x => x.value)
-        .reduce((a, b) => a + b, 0);
-  
-      this.totalReturn = this.returnItems
-        .map(x => x.value)
-        .reduce((a, b) => a + b, 0);
-  
-      this.totalDiscount = this.discountItems
-        .map(x => x.value)
-        .reduce((a, b) => a + b, 0);
-      this.toReturn = this.totalPayed - this.total - this.totalReturn;
+    this.totalPayed = this.payedItems
+      .map(x => x.value)
+      .reduce((a, b) => a + b, 0);
+
+    this.totalReturn = this.returnItems
+      .map(x => x.value)
+      .reduce((a, b) => a + b, 0);
+
+    this.totalDiscount = this.discountItems
+      .map(x => x.value)
+      .reduce((a, b) => a + b, 0);
+
+    this.toReturn = this.totalPayed - this.total - this.totalReturn;
   }
 
-  
+  removeItem(payItem: any) {
+    switch (payItem.payType) {
+      case PaymentType.PAYMONEY:
+        this.payedItems = this.payedItems.filter(p => p.id != payItem.id);
+        break;
+      case PaymentType.DISCOUNT:
+        this.discountItems = this.discountItems.filter(p => p.id != payItem.id);
+        break;
+      case PaymentType.PAYRETURN:
+        this.returnItems = this.returnItems.filter(p => p.id != payItem.id);
+        break;
+      default:
+        break;
+    }
+    this.calTotals();
+  }
+
+  payIt(payItem: any, payType: any) {
+    let payItemAux = Object.assign({}, payItem);
+    switch (payType) {
+      case PaymentType.PAYMONEY:
+        payItemAux.id = this.paymentItemIds++;
+        payItemAux.payType = PaymentType.PAYMONEY;
+        this.payedItems.push(payItemAux);
+        break;
+      case PaymentType.DISCOUNT:
+        payItemAux.id = this.discountItemIds++;
+        payItemAux.payType = PaymentType.DISCOUNT;
+        this.discountItems.push(payItemAux);
+        break;
+      case PaymentType.PAYRETURN:
+        payItemAux.id = this.returnItemIds++;
+        payItemAux.payType = PaymentType.PAYRETURN;
+        this.returnItems.push(payItemAux);
+        break;
+      default:
+        break;
+    }
+
+    this.calTotals();
+  }
+
+
 }
