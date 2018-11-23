@@ -17,30 +17,35 @@ export class SelectedListComponent implements OnInit {
   pResult: any;
   name: string = "Luis";
   @Input() selectedProducts: any[];
-  
-  @Input() removeProduct: Function;
 
-  constructor(public dialog: MatDialog) {}
+  @Input() removeProduct: Function;
+  @Input() recalTotal: Function;
+
+  constructor(public dialog: MatDialog) { }
 
   openDialog(product: any): void {
     const dialogRef = this.dialog.open(SelectedProductEditDialog, {
       width: "250px",
       height: "250px",
-      data: { id: product.id,  name: product.name, img: product.img, quantity: product.quantity }
+      data: {
+        id: product.id,
+        name: product.name,
+        img: product.img,
+        quantity: product.quantity
+      }
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
       if (result) {
-        this.selectedProducts.filter(p => p.id == result.id)[0].quantity = Number(result.quantity);
+        this.selectedProducts.filter(
+          p => p.id == result.id
+        )[0].quantity = Number(result.quantity);
+        this.recalTotal();
       }
     });
   }
 
-  
-
-  ngOnInit() {}
-
+  ngOnInit() { }
 }
 
 @Component({
