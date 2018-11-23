@@ -17,10 +17,10 @@
 
     <span *ngIf="total > 0 && (totalPayed - totalReturn) == total" class="noPrint" i18n>
       (PAID OUT)
-    </span>
+  </span>
 
     <span *ngIf="toReturn > 0">
-      to return: {{toReturn}} i18n
+      to return: {{toReturn}}
     </span>
     <span *ngIf="totalDiscount > 0">
       Discount: {{totalDiscount}}

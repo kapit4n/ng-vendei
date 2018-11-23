@@ -66,6 +66,7 @@ export class ShoppingCartComponent implements OnInit {
     this.selectedProducts.forEach(val => {
       this.total += val.price * val.quantity;
     });
+    this.calTotals();
   }
 
 
