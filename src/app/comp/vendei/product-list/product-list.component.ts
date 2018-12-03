@@ -1,6 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { VProductsService } from '../../../services/vendei/v-products.service'
-import { VCategoriesService } from '../../../services/vendei/v-categories.service';
+import { Component, OnInit, Input } from "@angular/core";
+import { VProductsService } from "../../../services/vendei/v-products.service";
+import { VCategoriesService } from "../../../services/vendei/v-categories.service";
 import { Router } from "@angular/router";
 
 @Component({
@@ -28,7 +28,7 @@ export class ProductListComponent implements OnInit {
     private productsSvc: VProductsService,
     private categoriesSvc: VCategoriesService,
     private router: Router
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.productsSvc.getProducts().subscribe(res => {
@@ -91,5 +91,7 @@ export class ProductListComponent implements OnInit {
   openRegister() {
     this.router.navigate(["/reg/products"]);
   }
-
+  openMain() {
+    this.router.navigate(["/main"]);
+  }
 }
