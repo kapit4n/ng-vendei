@@ -7,8 +7,9 @@
       <mat-icon>build</mat-icon>
     </button>
   </mat-icon>
-  <mat-icon mat-raised-button (click)="openMain()">home</mat-icon>
-  <mat-icon> </mat-icon>
+  <button mat-raised-button (click)="openMain()">
+    <mat-icon>home</mat-icon>
+  </button>
   <div *ngIf="displayCat">
     <div class="category-item" *ngFor="let cat of categories">
       <button mat-button style="width: 100%;" (click)="filterByCategory(cat)">
