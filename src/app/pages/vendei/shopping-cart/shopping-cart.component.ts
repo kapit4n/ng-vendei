@@ -1,5 +1,5 @@
 import { Component, OnInit, ElementRef, ViewChild } from "@angular/core";
-import { VOrdersService } from '../../../services/vendei/v-orders.service'
+import { VOrdersService } from "../../../services/vendei/v-orders.service";
 import { VInventoryService } from "../../../services/vendei/v-inventory.service";
 import { Router } from "@angular/router";
 
@@ -46,7 +46,7 @@ export class ShoppingCartComponent implements OnInit {
 
   @ViewChild("toPrint") myDiv: ElementRef;
 
-  ngOnInit() { }
+  ngOnInit() {}
 
   public removeProduct(product: any) {
     if (this.printOrderCount) {
@@ -69,20 +69,49 @@ export class ShoppingCartComponent implements OnInit {
     this.calTotals();
   }
 
-
   printOrder() {
     let popupWinindow;
-    let innerContents = document.getElementById("toPrint").innerHTML;
+    var todayTime = new Date();
+    var options = {
+      year: "numeric",
+      month: "numeric",
+      day: "numeric"
+    };
+
+    let innerContents = `<div style='padding-left: 20px;'>
+    <div>
+    <img stye="display: block;" src="http://themarketingbirds.com/wp-content/uploads/2018/08/656455-4-1-650-a542d8629a-1482214208.jpg" alt="Smiley face" height="42" width="42">
+    </div>
+    <div>Date: ${todayTime.toLocaleDateString("es-ES", options)} </div>
+    </div>`;
+    innerContents += "<table style='padding-left: 20px;'>";
+    innerContents += "<tr>";
+    innerContents += `<th>Qty</th>`;
+    innerContents += `<th>Detail</th>`;
+    innerContents += `<th>Price</th>`;
+    innerContents += `<th>SubTotal</th>`;
+    innerContents += "</tr>";
+    for (let i = 0; i < this.selectedProducts.length; i++) {
+      innerContents += "<tr>";
+      innerContents += `<td>${this.selectedProducts[i].quantity}</td>`;
+      innerContents += `<td>${this.selectedProducts[i].name}</td>`;
+      innerContents += `<td>${this.selectedProducts[i].price}</td>`;
+      innerContents += `<td>${this.selectedProducts[i].price *
+        this.selectedProducts[i].quantity}</td>`;
+      innerContents += "</tr>";
+    }
+    innerContents += "</table>";
     popupWinindow = window.open(
       "",
       "_blank",
       "width=600,height=400,scrollbars=no,menubar=no,toolbar=no,location=no,status=no,titlebar=no"
     );
     popupWinindow.document.open();
-    popupWinindow.document.write(`<html><head><link rel="stylesheet" type="text/css" href="style.css" />
+    popupWinindow.document.write(
+      `<html><head><link rel="stylesheet" type="text/css" href="style.css" />
     </head><body onload="window.print()">
     <style>
-    img {
+    img2 {
         display: none !important;
     }
     button {
@@ -129,7 +158,10 @@ export class ShoppingCartComponent implements OnInit {
 }());
     </script>
 
-    ` + innerContents + "</html>");
+    ` +
+        innerContents +
+        "</html>"
+    );
 
     var selfx = this;
 
@@ -172,7 +204,6 @@ export class ShoppingCartComponent implements OnInit {
           d.orderId = order.id;
           d.createdDate = o.createdDate;
           this.ordersSvc.saveDetail(d).subscribe(ds => {
-
             this.inventorySvc
               .reduceInventory(ds.productId, ds.quantity)
               .subscribe(dat => {
@@ -190,13 +221,10 @@ export class ShoppingCartComponent implements OnInit {
               .subscribe(dat => {
                 console.log(dat);
               });
-
           });
         });
       });
     }, 800);
-
-
   }
 
   clearItems() {
@@ -212,7 +240,6 @@ export class ShoppingCartComponent implements OnInit {
     this.totalReturn = 0;
     this.toReturn = 0;
     this.printOrderCount = 0;
-
   }
 
   public selectCustomer(customer: any) {
@@ -282,6 +309,4 @@ export class ShoppingCartComponent implements OnInit {
 
     this.calTotals();
   }
-
-
 }
