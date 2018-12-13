@@ -19,6 +19,7 @@
       [selectedProducts]="selectedProducts"
       [removeProduct]="removeProduct.bind(this)"
       [recalTotal]="recalTotal.bind(this)"
+      [(printOrderCount)]="printOrderCount"
     ></app-selected-list>
     <span style="display: block;"> Total: {{ total }} </span>
     <span *ngIf="totalPayed - totalReturn != total" i18n>
@@ -49,11 +50,13 @@
     [calTotals]="calTotals.bind(this)"
     [payIt]="payIt.bind(this)"
     [removeItem]="removeItem.bind(this)"
+    [(printOrderCount)]="printOrderCount"
   ></app-cal-table>
 </div>
 <div class="product-list">
   <app-product-list
     [selectedProducts]="selectedProducts"
     [recalTotal]="recalTotal.bind(this)"
+    [(printOrderCount)]="printOrderCount"
   ></app-product-list>
 </div>
