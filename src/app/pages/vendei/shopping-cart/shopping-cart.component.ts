@@ -269,6 +269,8 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   removeItem(payItem: any) {
+    if (this.printOrderCount) return;
+    
     switch (payItem.payType) {
       case PaymentType.PAYMONEY:
         this.payedItems = this.payedItems.filter(p => p.id != payItem.id);

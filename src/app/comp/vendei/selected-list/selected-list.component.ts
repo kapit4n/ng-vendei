@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Inject } from "@angular/core";
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
 
 export interface DialogData {
   id: string;
@@ -17,11 +17,12 @@ export class SelectedListComponent implements OnInit {
   pResult: any;
   name: string = "Luis";
   @Input() selectedProducts: any[];
+  @Input() printOrderCount: number;
 
   @Input() removeProduct: Function;
   @Input() recalTotal: Function;
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog) {}
 
   openDialog(product: any): void {
     const dialogRef = this.dialog.open(SelectedProductEditDialog, {
@@ -45,21 +46,20 @@ export class SelectedListComponent implements OnInit {
     });
   }
 
-  ngOnInit() { }
+  ngOnInit() {}
 }
 
 @Component({
-  selector: 'selected-product-edit-dialog',
-  templateUrl: 'selected-product-edit-dialog.html',
+  selector: "selected-product-edit-dialog",
+  templateUrl: "selected-product-edit-dialog.html"
 })
 export class SelectedProductEditDialog {
-
   constructor(
     public dialogRef: MatDialogRef<SelectedProductEditDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData) { }
+    @Inject(MAT_DIALOG_DATA) public data: DialogData
+  ) {}
 
   onNoClick(): void {
     this.dialogRef.close();
   }
-
 }
