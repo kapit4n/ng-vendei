@@ -29,9 +29,6 @@
   <span *ngIf="payTypeLabel == 'RETURN'">Return:</span>
 
   <div class="payment-item" *ngFor="let payItem of payItems">
-
-
-
     <button mat-raised-button (click)="payIt(payItem, payType)"  color="primary">{{payItem.name}}
       <span *ngIf="displayCurrentType">{{currentType}}</span>
     </button>
