@@ -67,7 +67,7 @@ export class ShoppingCartComponent implements OnInit {
       if (result) {
         console.log("set total with: " + result.total);
         this.totalPayed = result.pay;
-        this.toReturn = this.total 
+        this.toReturn = this.totalPayed - this.total; 
       }
     });
   }
