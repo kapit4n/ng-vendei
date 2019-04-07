@@ -20,14 +20,14 @@ import { RouterModule, Routes } from "@angular/router";
 
 import { PageNotFoundComponent } from "./pages/vendei/page-not-found/page-not-found.component";
 import { MainScreenshotComponent } from "./pages/vendei/main-screenshot/main-screenshot.component";
-import { ShoppingCartComponent } from "./pages/vendei/shopping-cart/shopping-cart.component";
+import { ShoppingCartComponent, PaymentEditDialog } from "./pages/vendei/shopping-cart/shopping-cart.component";
 
 import { ProductListComponent } from "./comp/vendei/product-list/product-list.component";
 import { CalTableComponent } from "./comp/vendei/cal-table/cal-table.component";
 import {
   SelectedListComponent,
   SelectedProductEditDialog
-} from "./comp/vendei/selected-list/selected-list.component";
+ } from "./comp/vendei/selected-list/selected-list.component";
 import { CustomerListComponent } from "./comp/vendei/customer-list/customer-list.component";
 import { CustomersDialogComponent } from "./comp/vendei/customers-dialog/customers-dialog.component";
 
@@ -72,6 +72,7 @@ const appRoutes: Routes = [
     CalTableComponent,
     SelectedListComponent,
     SelectedProductEditDialog,
+    PaymentEditDialog,
     CustomerListComponent,
     CustomersDialogComponent,
     MainComponent
@@ -94,6 +95,6 @@ const appRoutes: Routes = [
   ],
   providers: [VProductsService, VCustomersService, VConfigService],
   bootstrap: [AppComponent],
-  entryComponents: [SelectedProductEditDialog, CustomersDialogComponent]
+  entryComponents: [PaymentEditDialog, SelectedProductEditDialog, CustomersDialogComponent]
 })
 export class AppModule {}
