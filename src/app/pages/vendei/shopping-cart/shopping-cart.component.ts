@@ -23,6 +23,10 @@ export interface PaymentDialogData {
   styleUrls: ["./shopping-cart.component.css"]
 })
 export class ShoppingCartComponent implements OnInit {
+
+  // config
+  displayCal = false;
+
   total: number;
   emptyCustomer = { id: 1, name: "Anonymous", ci: 1234567 };
 

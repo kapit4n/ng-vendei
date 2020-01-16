@@ -38,7 +38,7 @@
         <span *ngIf="toReturn > 0"> to return: {{ toReturn }} </span>
         <span *ngIf="totalDiscount > 0"> Discount: {{ totalDiscount }} </span>
     </div>
-    <app-cal-table class="cal-table" [selectCustomer]="selectCustomer.bind(this)" [selectedCustomer]="selectedCustomer" [(payedItems)]="payedItems" [(discountItems)]="discountItems" [(returnItems)]="returnItems" [(totalPayed)]="totalPayed" [(totalDiscount)]="totalDiscount"
+    <app-cal-table *ngIf="displayCal" class="cal-table" [selectCustomer]="selectCustomer.bind(this)" [selectedCustomer]="selectedCustomer" [(payedItems)]="payedItems" [(discountItems)]="discountItems" [(returnItems)]="returnItems" [(totalPayed)]="totalPayed" [(totalDiscount)]="totalDiscount"
         [(totalReturn)]="totalReturn" [calTotals]="calTotals.bind(this)" [payIt]="payIt.bind(this)" [removeItem]="removeItem.bind(this)" [(printOrderCount)]="printOrderCount"></app-cal-table>
 </div>
 <div class="product-list">
