@@ -10,13 +10,13 @@
 @media (min-width: 1281px) {
     .shopping-cart-container {
         width: 36%;
-        height: 500px;
+        height: 100%;
         display: inline-block;
     }
     .selected-list {
         overflow-y: scroll;
         position: relative;
-        height: 500px;
+        height: 100%;
         background-color: rgb(174, 175, 193);
     }
     .cal-table {
@@ -43,13 +43,13 @@
 @media (min-width: 1025px) and (max-width: 1280px) {
     .shopping-cart-container {
         width: 36%;
-        height: 500px;
+        height: 100%;
         display: inline-block;
     }
     .selected-list {
         overflow-y: scroll;
         position: relative;
-        height: 500px;
+        height: 100%;
         background-color: rgb(100, 111, 130);
     }
     .cal-table {
@@ -76,13 +76,13 @@
 @media (min-width: 768px) and (max-width: 1024px) {
     .shopping-cart-container {
         width: 36%;
-        height: 500px;
+        height: 100%;
         display: inline-block;
     }
     .selected-list {
         overflow-y: scroll;
         position: relative;
-        height: 500px;
+        height: 100%;
         background-color: rgb(92, 114, 90);
     }
     .cal-table {
@@ -109,13 +109,13 @@
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
     .shopping-cart-container {
         width: 36%;
-        height: 500px;
+        height: 100%;
         display: inline-block;
     }
     .selected-list {
         overflow-y: scroll;
         position: relative;
-        height: 500px;
+        height: 100%;
         background-color: rgb(186, 183, 120);
     }
     .cal-table {
