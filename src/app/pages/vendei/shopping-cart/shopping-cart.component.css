@@ -31,6 +31,7 @@
         position: absolute;
         top: 1px;
         background-color: rgb(174, 175, 193);
+        overflow: scroll;
     }
 }
 
@@ -64,6 +65,7 @@
         position: absolute;
         top: 1px;
         background-color: rgb(100, 111, 130);
+        overflow: scroll;
     }
 }
 
@@ -97,6 +99,7 @@
         position: absolute;
         top: 1px;
         background-color: rgb(92, 114, 90);
+        overflow: scroll;
     }
 }
 
@@ -130,6 +133,7 @@
         position: absolute;
         top: 1px;
         background-color: rgb(186, 183, 120);
+        overflow: scroll;
     }
 }
 
@@ -161,6 +165,7 @@
         height: 100%;
         display: inline-block;
         background-color: rgb(142, 95, 87);
+        overflow: scroll;
     }
 }
 
@@ -193,6 +198,7 @@
         height: 100%;
         display: inline-block;
         background-color: rgb(168, 156, 154);
+        overflow: scroll;
     }
 }
 

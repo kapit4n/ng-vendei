@@ -23,6 +23,7 @@ import { MainScreenshotComponent } from "./pages/vendei/main-screenshot/main-scr
 import { ShoppingCartComponent, PaymentEditDialog } from "./pages/vendei/shopping-cart/shopping-cart.component";
 
 import { ProductListComponent } from "./comp/vendei/product-list/product-list.component";
+import { CategoryListComponent } from "./comp/vendei/category-list/category-list.component";
 import { CalTableComponent } from "./comp/vendei/cal-table/cal-table.component";
 import {
   SelectedListComponent,
@@ -66,6 +67,7 @@ const appRoutes: Routes = [
     AppComponent,
     LoginComponent,
     ProductListComponent,
+    CategoryListComponent,
     MainScreenshotComponent,
     PageNotFoundComponent,
     ShoppingCartComponent,
