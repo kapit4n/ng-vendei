@@ -1,4 +1,4 @@
-<div class="category-container">
+<div style="display: flex; justify-content: space-between;">
   <mat-icon *ngIf="false">
     <button mat-raised-button (click)="openReports()">
       <mat-icon>info</mat-icon>
@@ -37,7 +37,7 @@
     />
   </mat-form-field>
 </div>
-<div class="items-container">
+<div style="display: grid; grid-template-columns: 350px 350px 350px 350px; ">
   <div class="product-list-item-t"
     *ngFor="let product of products"
     [style.background]="'url(' + product.img + ')'"

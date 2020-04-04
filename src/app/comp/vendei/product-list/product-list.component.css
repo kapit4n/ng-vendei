@@ -1,9 +1,9 @@
 .product-list-item-t {
-    width: 230px;
-    height: 230px;
+    width: 340px;
+    height: 340px;
     display: inline-block;
     border-style: solid;
-    margin: 5px;
+    margin: 10px;
 }
 
 @media (max-width: 480px) {
