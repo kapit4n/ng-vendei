@@ -1,6 +1,6 @@
 # NgVendei
 
-![Shopping cart](https://raw.githubusercontent.com/kapit4n/ng-vendei/develop/mockups/vendei_shopping_cart_006.png)
+![Shopping cart](https://raw.githubusercontent.com/kapit4n/ng-vendei/master/mockups/vendei_shopping_cart_006.png)
 
 
 ## Development server
